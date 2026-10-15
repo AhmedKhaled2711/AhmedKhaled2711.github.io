@@ -8,56 +8,63 @@ import { personalInfo } from '../../data/portfolio';
       <!-- Status Badge -->
       <div class="status-badge-wrapper">
         <span class="status-pulse" aria-hidden="true"></span>
-        <span class="status-text">{personalInfo.role} • 2+ Years Production Experience</span>
+        <span class="status-text">Available for Native Android Roles • Cairo & GCC</span>
       </div>
 
       <!-- Main Headline -->
       <h1 class="hero-name">{personalInfo.name}</h1>
       <p class="hero-title">Native Android Engineer</p>
 
-      <!-- Bio / Positioning -->
+      <!-- Concise Value Proposition -->
       <p class="hero-lead">
-        Building maintainable, production-ready mobile applications using <strong>Kotlin</strong>, <strong>Jetpack Compose</strong>, <strong>MVVM</strong>, and <strong>Clean Architecture</strong>. Experienced delivering real-time food delivery platforms, multi-service transportation apps, and e-commerce solutions with a focus on stability, reactive concurrency, and offline-first synchronization.
+        Building maintainable mobile applications using <strong>Kotlin</strong>, <strong>Jetpack Compose</strong>, and <strong>Clean Architecture</strong>—focused on real-time synchronization, offline-first reliability, and production stability.
       </p>
 
-      <!-- Action Buttons -->
+      <!-- Primary Action Buttons -->
       <div class="hero-cta-group">
         <a href="#hatli" class="btn btn-primary">
-          <span>Explore Flagship Work (Hatli)</span>
+          <span>View Projects</span>
           <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <line x1="5" y1="12" x2="19" y2="12"></line>
             <polyline points="12 5 19 12 12 19"></polyline>
           </svg>
         </a>
-        <a href={personalInfo.resumeUrl} download="Ahmed_Khaled_Android_Engineer.pdf" class="btn btn-secondary">
+        <a href="#contact" class="btn btn-secondary">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect width="20" height="16" x="2" y="4" rx="2"></rect>
+            <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+          </svg>
+          <span>Contact Me</span>
+        </a>
+        <a href={personalInfo.resumeUrl} download="Ahmed_Khaled_Android_Engineer.pdf" class="btn btn-secondary hero-cv-link" aria-label="Download CV as PDF">
           <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
             <polyline points="7 10 12 15 17 10"></polyline>
             <line x1="12" y1="15" x2="12" y2="3"></line>
           </svg>
-          <span>Download CV</span>
+          <span>CV</span>
         </a>
       </div>
 
       <!-- Verified Social Proof Links -->
       <div class="hero-social-strip">
         <span class="social-label">Profiles:</span>
-        <a href={personalInfo.social.github} target="_blank" rel="noopener noreferrer" class="social-chip" aria-label="Ahmed Khaled GitHub profile">
+        <a href={personalInfo.social.github} target="_blank" rel="noopener noreferrer" class="social-chip" aria-label="Ahmed Khaled GitHub profile (opens in new tab)">
           <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true">
             <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
           </svg>
-          <span>github.com/AhmedKhaled2711</span>
+          <span>GitHub</span>
         </a>
-        <a href={personalInfo.social.linkedin} target="_blank" rel="noopener noreferrer" class="social-chip" aria-label="Ahmed Khaled LinkedIn profile">
+        <a href={personalInfo.social.linkedin} target="_blank" rel="noopener noreferrer" class="social-chip" aria-label="Ahmed Khaled LinkedIn profile (opens in new tab)">
           <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true">
             <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
           </svg>
-          <span>linkedin.com/in/ahmed-khaled-android</span>
+          <span>LinkedIn</span>
         </a>
       </div>
 
       <!-- Highlights Strip -->
-      <div class="hero-tech-strip">
+      <div class="hero-tech-strip" aria-label="Core Technical Focus">
         <span class="tech-tag">Kotlin 2.0</span>
         <span class="tech-tag">Jetpack Compose</span>
         <span class="tech-tag">Clean Architecture</span>
@@ -71,7 +78,7 @@ import { personalInfo } from '../../data/portfolio';
     <div class="hero-visual">
       <div class="ide-window">
         <div class="ide-topbar">
-          <div class="ide-dots">
+          <div class="ide-dots" aria-hidden="true">
             <span class="dot red"></span>
             <span class="dot yellow"></span>
             <span class="dot green"></span>
@@ -107,14 +114,14 @@ import { personalInfo } from '../../data/portfolio';
 
         <div class="ide-footer">
           <div class="build-status">
-            <span class="status-indicator"></span>
+            <span class="status-indicator" aria-hidden="true"></span>
             <span>Gradle: app:assembleRelease SUCCESSFUL</span>
           </div>
-          <div class="arch-pills">
+          <div class="arch-pills" aria-label="Architecture flow">
             <span class="arch-pill">Compose UI</span>
-            <span class="arch-arrow">→</span>
+            <span class="arch-arrow" aria-hidden="true">→</span>
             <span class="arch-pill">Domain UseCase</span>
-            <span class="arch-arrow">→</span>
+            <span class="arch-arrow" aria-hidden="true">→</span>
             <span class="arch-pill">Room Cache + Flow</span>
           </div>
         </div>
@@ -125,8 +132,8 @@ import { personalInfo } from '../../data/portfolio';
 
 <style>
   .hero-section {
-    padding-top: clamp(3rem, 7vw, 6rem);
-    padding-bottom: clamp(3.5rem, 8vw, 6.5rem);
+    padding-top: clamp(2.5rem, 5vw, 4.5rem);
+    padding-bottom: clamp(3rem, 6vw, 5.5rem);
     border-bottom: 1px solid var(--border-subtle);
     background: radial-gradient(circle at 80% 20%, var(--android-green-dim), transparent 50%);
   }
@@ -134,14 +141,14 @@ import { personalInfo } from '../../data/portfolio';
   .hero-container {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 3.5rem;
+    gap: 2.5rem;
     align-items: center;
   }
 
   @media (min-width: 1024px) {
     .hero-container {
       grid-template-columns: 1.15fr 0.85fr;
-      gap: 4rem;
+      gap: 3.5rem;
     }
   }
 
@@ -159,8 +166,9 @@ import { personalInfo } from '../../data/portfolio';
     border-radius: var(--radius-full);
     background-color: var(--bg-surface-elevated);
     border: 1px solid var(--border-medium);
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.25rem;
     width: fit-content;
+    max-width: 100%;
   }
 
   .status-pulse {
@@ -169,6 +177,7 @@ import { personalInfo } from '../../data/portfolio';
     border-radius: 50%;
     background-color: var(--accent);
     box-shadow: 0 0 8px var(--accent);
+    flex-shrink: 0;
   }
 
   .status-text {
@@ -176,10 +185,11 @@ import { personalInfo } from '../../data/portfolio';
     font-weight: 600;
     color: var(--text-secondary);
     font-family: var(--font-mono);
+    line-height: 1.3;
   }
 
   .hero-name {
-    font-size: clamp(2.5rem, 5.5vw, 4.25rem);
+    font-size: clamp(2.25rem, 5vw, 3.75rem);
     font-weight: 800;
     letter-spacing: -0.035em;
     color: var(--text-primary);
@@ -187,19 +197,19 @@ import { personalInfo } from '../../data/portfolio';
   }
 
   .hero-title {
-    font-size: clamp(1.25rem, 2.5vw, 1.875rem);
+    font-size: clamp(1.2rem, 2.2vw, 1.75rem);
     font-weight: 600;
     color: var(--accent);
-    margin-top: 0.5rem;
-    margin-bottom: 1.25rem;
+    margin-top: 0.35rem;
+    margin-bottom: 1rem;
     letter-spacing: -0.02em;
   }
 
   .hero-lead {
-    font-size: clamp(1.05rem, 1.6vw, 1.2rem);
+    font-size: clamp(1rem, 1.5vw, 1.125rem);
     color: var(--text-secondary);
     line-height: 1.65;
-    max-width: 620px;
+    max-width: 600px;
   }
 
   .hero-lead strong {
@@ -211,8 +221,12 @@ import { personalInfo } from '../../data/portfolio';
   .hero-cta-group {
     display: flex;
     flex-wrap: wrap;
-    gap: 1rem;
-    margin-top: 2rem;
+    gap: 0.75rem;
+    margin-top: 1.75rem;
+  }
+
+  .hero-cv-link {
+    min-height: 44px;
   }
 
   /* Social Strip */
@@ -220,9 +234,9 @@ import { personalInfo } from '../../data/portfolio';
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    gap: 0.75rem;
-    margin-top: 2rem;
-    padding-top: 1.5rem;
+    gap: 0.625rem;
+    margin-top: 1.75rem;
+    padding-top: 1.25rem;
     border-top: 1px solid var(--border-subtle);
   }
 
@@ -239,11 +253,12 @@ import { personalInfo } from '../../data/portfolio';
     font-size: 0.8125rem;
     font-family: var(--font-mono);
     color: var(--text-secondary);
-    padding: 0.3rem 0.65rem;
+    padding: 0.35rem 0.65rem;
     border-radius: var(--radius-sm);
     background-color: var(--bg-surface-elevated);
     border: 1px solid var(--border-subtle);
     transition: all var(--transition-fast);
+    min-height: 36px;
   }
 
   .social-chip:hover {
@@ -256,14 +271,14 @@ import { personalInfo } from '../../data/portfolio';
   .hero-tech-strip {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.5rem;
-    margin-top: 1.25rem;
+    gap: 0.4rem;
+    margin-top: 1rem;
   }
 
   .tech-tag {
     font-family: var(--font-mono);
     font-size: 0.75rem;
-    padding: 0.2rem 0.55rem;
+    padding: 0.2rem 0.5rem;
     border-radius: var(--radius-xs);
     background-color: var(--badge-bg);
     color: var(--badge-text);
@@ -273,6 +288,8 @@ import { personalInfo } from '../../data/portfolio';
   /* Visual IDE / Architectural Composition */
   .hero-visual {
     width: 100%;
+    max-width: 100%;
+    overflow: hidden;
   }
 
   .ide-window {
@@ -281,6 +298,7 @@ import { personalInfo } from '../../data/portfolio';
     border-radius: var(--radius-lg);
     box-shadow: var(--shadow-xl);
     overflow: hidden;
+    max-width: 100%;
   }
 
   .ide-topbar {
@@ -290,11 +308,14 @@ import { personalInfo } from '../../data/portfolio';
     padding: 0.75rem 1rem;
     background-color: var(--bg-surface-elevated);
     border-bottom: 1px solid var(--border-subtle);
+    gap: 0.5rem;
+    overflow: hidden;
   }
 
   .ide-dots {
     display: flex;
     gap: 6px;
+    flex-shrink: 0;
   }
 
   .dot {
@@ -315,6 +336,9 @@ import { personalInfo } from '../../data/portfolio';
     font-size: 0.8125rem;
     color: var(--text-primary);
     font-weight: 500;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
 
   .ide-env-badge {
@@ -325,12 +349,21 @@ import { personalInfo } from '../../data/portfolio';
     background-color: var(--accent-light);
     border-radius: var(--radius-xs);
     font-weight: 600;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  @media (max-width: 480px) {
+    .ide-env-badge {
+      display: none;
+    }
   }
 
   .ide-code-body {
-    padding: 1.25rem 1.25rem;
+    padding: 1rem 1.25rem;
     background-color: var(--code-bg);
     overflow-x: auto;
+    max-width: 100%;
   }
 
   .ide-code-body pre {
@@ -357,6 +390,7 @@ import { personalInfo } from '../../data/portfolio';
     gap: 0.5rem;
     font-size: 0.75rem;
     font-family: var(--font-mono);
+    overflow: hidden;
   }
 
   .build-status {
@@ -364,6 +398,7 @@ import { personalInfo } from '../../data/portfolio';
     align-items: center;
     gap: 0.5rem;
     color: var(--text-secondary);
+    white-space: nowrap;
   }
 
   .status-indicator {
@@ -371,6 +406,7 @@ import { personalInfo } from '../../data/portfolio';
     height: 6px;
     border-radius: 50%;
     background-color: var(--accent);
+    flex-shrink: 0;
   }
 
   .arch-pills {
@@ -380,6 +416,8 @@ import { personalInfo } from '../../data/portfolio';
     color: var(--text-muted);
     font-size: 0.6875rem;
     overflow-x: auto;
+    white-space: nowrap;
+    padding-bottom: 2px;
   }
 
   .arch-pill {

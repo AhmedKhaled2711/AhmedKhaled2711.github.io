@@ -13,7 +13,7 @@ const navItems = [
 
 <header class="site-header" id="site-header">
   <div class="container header-container">
-    <a href="/" class="brand" aria-label="Ahmed Khaled - Home">
+    <a href="/" class="brand" aria-label="Ahmed Khaled, Native Android Engineer - Home">
       <div class="brand-monogram">
         <span class="monogram-text">AK</span>
         <span class="android-indicator" aria-hidden="true"></span>
@@ -41,8 +41,14 @@ const navItems = [
     <!-- Header Actions -->
     <div class="header-actions">
       <!-- Theme Switcher -->
-      <button id="theme-toggle" class="theme-btn" type="button" aria-label="Toggle light/dark theme" title="Toggle theme">
-        <svg class="sun-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <button
+        id="theme-toggle"
+        class="theme-btn"
+        type="button"
+        aria-label="Switch color theme"
+        title="Toggle color theme"
+      >
+        <svg class="sun-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
           <circle cx="12" cy="12" r="4"></circle>
           <path d="M12 2v2"></path>
           <path d="M12 20v2"></path>
@@ -53,13 +59,13 @@ const navItems = [
           <path d="m6.34 17.66-1.41 1.41"></path>
           <path d="m19.07 4.93-1.41 1.41"></path>
         </svg>
-        <svg class="moon-icon" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <svg class="moon-icon" viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
           <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>
         </svg>
       </button>
 
-      <!-- CV Download Action -->
-      <a href={personalInfo.resumeUrl} download="Ahmed_Khaled_Android_Engineer.pdf" class="btn btn-sm btn-cv" aria-label="Download Ahmed Khaled's CV (PDF)">
+      <!-- CV Download Action (Desktop & Tablet) -->
+      <a href={personalInfo.resumeUrl} download="Ahmed_Khaled_Android_Engineer.pdf" class="btn btn-sm btn-cv header-cv-btn" aria-label="Download Ahmed Khaled's CV (PDF)">
         <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
           <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
           <polyline points="7 10 12 15 17 10"></polyline>
@@ -68,8 +74,15 @@ const navItems = [
         <span>CV</span>
       </a>
 
-      <!-- Mobile Menu Toggle Button -->
-      <button id="mobile-menu-toggle" class="mobile-toggle-btn" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobile-nav">
+      <!-- Mobile Menu Toggle Button (Min 44x44px target) -->
+      <button
+        id="mobile-menu-toggle"
+        class="mobile-toggle-btn"
+        type="button"
+        aria-label="Open navigation menu"
+        aria-expanded="false"
+        aria-controls="mobile-nav"
+      >
         <span class="hamburger-bar"></span>
         <span class="hamburger-bar"></span>
         <span class="hamburger-bar"></span>
@@ -88,7 +101,7 @@ const navItems = [
         </li>
       ))}
       <li class="mobile-cv-item">
-        <a href={personalInfo.resumeUrl} download class="btn btn-primary btn-sm mobile-cv-btn">
+        <a href={personalInfo.resumeUrl} download="Ahmed_Khaled_Android_Engineer.pdf" class="btn btn-primary btn-sm mobile-cv-btn">
           Download Complete CV (PDF)
         </a>
       </li>
@@ -119,9 +132,10 @@ const navItems = [
   .brand {
     display: flex;
     align-items: center;
-    gap: 0.875rem;
+    gap: 0.75rem;
     text-decoration: none;
     color: var(--text-primary);
+    min-height: 44px;
   }
 
   .brand-monogram {
@@ -138,6 +152,7 @@ const navItems = [
     font-size: 0.9375rem;
     color: var(--text-primary);
     transition: border-color var(--transition-fast), transform var(--transition-fast);
+    flex-shrink: 0;
   }
 
   .brand:hover .brand-monogram {
@@ -163,9 +178,10 @@ const navItems = [
 
   .brand-name {
     font-weight: 700;
-    font-size: 1rem;
+    font-size: 0.95rem;
     letter-spacing: -0.015em;
     line-height: 1.2;
+    white-space: nowrap;
   }
 
   .brand-title {
@@ -173,6 +189,13 @@ const navItems = [
     color: var(--text-muted);
     font-family: var(--font-mono);
     letter-spacing: 0.02em;
+    white-space: nowrap;
+  }
+
+  @media (max-width: 480px) {
+    .brand-title {
+      display: none;
+    }
   }
 
   /* Desktop Nav */
@@ -202,6 +225,7 @@ const navItems = [
     display: flex;
     align-items: center;
     gap: 0.35rem;
+    min-height: 44px;
   }
 
   .nav-link:hover {
@@ -222,12 +246,12 @@ const navItems = [
   .header-actions {
     display: flex;
     align-items: center;
-    gap: 0.75rem;
+    gap: 0.5rem;
   }
 
   .theme-btn {
-    width: 38px;
-    height: 38px;
+    min-width: 44px;
+    min-height: 44px;
     border-radius: var(--radius-sm);
     display: flex;
     align-items: center;
@@ -236,6 +260,7 @@ const navItems = [
     border: 1px solid var(--border-subtle);
     color: var(--text-secondary);
     transition: all var(--transition-fast);
+    cursor: pointer;
   }
 
   .theme-btn:hover {
@@ -258,6 +283,7 @@ const navItems = [
   }
 
   .btn-cv {
+    min-height: 44px;
     background-color: var(--bg-surface-elevated);
     border: 1px solid var(--border-medium);
     color: var(--text-primary);
@@ -270,18 +296,25 @@ const navItems = [
     color: var(--accent);
   }
 
-  /* Mobile Toggle */
+  @media (max-width: 360px) {
+    .header-cv-btn {
+      display: none;
+    }
+  }
+
+  /* Mobile Toggle (Min 44x44px target) */
   .mobile-toggle-btn {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-items: center;
     gap: 5px;
-    width: 38px;
-    height: 38px;
+    min-width: 44px;
+    min-height: 44px;
     border-radius: var(--radius-sm);
     background-color: var(--bg-surface-elevated);
     border: 1px solid var(--border-subtle);
-    padding: 8px;
+    padding: 10px;
     cursor: pointer;
   }
 
@@ -292,11 +325,23 @@ const navItems = [
   }
 
   .hamburger-bar {
-    width: 100%;
+    width: 20px;
     height: 2px;
     background-color: var(--text-primary);
     border-radius: 2px;
-    transition: transform var(--transition-fast), opacity var(--transition-fast);
+    transition: transform var(--transition-normal), opacity var(--transition-normal);
+  }
+
+  .mobile-toggle-btn[aria-expanded="true"] .hamburger-bar:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+  }
+
+  .mobile-toggle-btn[aria-expanded="true"] .hamburger-bar:nth-child(2) {
+    opacity: 0;
+  }
+
+  .mobile-toggle-btn[aria-expanded="true"] .hamburger-bar:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
   }
 
   /* Mobile Nav Drawer */
@@ -317,7 +362,7 @@ const navItems = [
     list-style: none;
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: 0.75rem;
   }
 
   .mobile-nav-link {
@@ -326,6 +371,9 @@ const navItems = [
     color: var(--text-primary);
     display: block;
     padding: 0.5rem 0;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
   }
 
   .mobile-nav-link:hover {
@@ -340,42 +388,77 @@ const navItems = [
 
   .mobile-cv-btn {
     width: 100%;
+    min-height: 44px;
   }
 </style>
 
 <script>
-  // Mobile Nav Drawer Toggle
+  // Mobile Nav Drawer Toggle & Keyboard Handling
   const toggleBtn = document.getElementById('mobile-menu-toggle');
   const mobileNav = document.getElementById('mobile-nav');
+
+  function closeMobileNav() {
+    if (toggleBtn && mobileNav) {
+      toggleBtn.setAttribute('aria-expanded', 'false');
+      toggleBtn.setAttribute('aria-label', 'Open navigation menu');
+      mobileNav.setAttribute('hidden', '');
+    }
+  }
+
+  function openMobileNav() {
+    if (toggleBtn && mobileNav) {
+      toggleBtn.setAttribute('aria-expanded', 'true');
+      toggleBtn.setAttribute('aria-label', 'Close navigation menu');
+      mobileNav.removeAttribute('hidden');
+    }
+  }
 
   if (toggleBtn && mobileNav) {
     toggleBtn.addEventListener('click', () => {
       const isExpanded = toggleBtn.getAttribute('aria-expanded') === 'true';
-      toggleBtn.setAttribute('aria-expanded', String(!isExpanded));
       if (isExpanded) {
-        mobileNav.setAttribute('hidden', '');
+        closeMobileNav();
       } else {
-        mobileNav.removeAttribute('hidden');
+        openMobileNav();
       }
     });
 
-    // Close mobile nav when clicking a link
+    // Close when clicking any nav link
     mobileNav.querySelectorAll('a').forEach((link) => {
       link.addEventListener('click', () => {
-        toggleBtn.setAttribute('aria-expanded', 'false');
-        mobileNav.setAttribute('hidden', '');
+        closeMobileNav();
       });
+    });
+
+    // Close on Escape key
+    window.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && toggleBtn.getAttribute('aria-expanded') === 'true') {
+        closeMobileNav();
+        toggleBtn.focus();
+      }
     });
   }
 
-  // Theme Toggle Logic
+  // Theme Toggle Logic with accessible labels
   const themeToggle = document.getElementById('theme-toggle');
+  function updateThemeLabel(theme: string) {
+    if (themeToggle) {
+      const nextTheme = theme === 'dark' ? 'light' : 'dark';
+      themeToggle.setAttribute('aria-label', `Switch to ${nextTheme} theme`);
+      themeToggle.setAttribute('title', `Switch to ${nextTheme} theme`);
+    }
+  }
+
   if (themeToggle) {
+    const currentTheme = document.documentElement.getAttribute('data-theme') || 'dark';
+    updateThemeLabel(currentTheme);
+
     themeToggle.addEventListener('click', () => {
-      const currentTheme = document.documentElement.getAttribute('data-theme') || 'dark';
-      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+      const activeTheme = document.documentElement.getAttribute('data-theme') || 'dark';
+      const newTheme = activeTheme === 'dark' ? 'light' : 'dark';
       document.documentElement.setAttribute('data-theme', newTheme);
       localStorage.setItem('theme', newTheme);
+      updateThemeLabel(newTheme);
     });
   }
 </script>

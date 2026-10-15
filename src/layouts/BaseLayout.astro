@@ -27,6 +27,10 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://ahmedkha
     <link rel="canonical" href={canonicalURL} />
     <meta name="generator" content={Astro.generator} />
 
+    <!-- Google Fonts Preconnect for FCP -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
     <!-- Primary Meta Tags -->
     <title>{title}</title>
     <meta name="title" content={title} />
@@ -63,8 +67,11 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://ahmedkha
     </script>
   </head>
   <body>
+    <!-- Accessibility Skip Link -->
+    <a href="#main-content" class="skip-to-content">Skip to main content</a>
+
     <Navbar />
-    <main id="main-content">
+    <main id="main-content" tabindex="-1">
       <slot />
     </main>
     <Footer />
@@ -72,7 +79,30 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://ahmedkha
 </html>
 
 <style>
+  .skip-to-content {
+    position: absolute;
+    top: -100px;
+    left: 1rem;
+    z-index: 1000;
+    padding: 0.75rem 1.25rem;
+    background: var(--accent);
+    color: var(--accent-contrast);
+    font-weight: 700;
+    font-size: 0.875rem;
+    border-radius: var(--radius-sm);
+    box-shadow: var(--shadow-lg);
+    text-decoration: none;
+    transition: top var(--transition-fast);
+  }
+
+  .skip-to-content:focus {
+    top: 1rem;
+    outline: 2px solid var(--accent-contrast);
+    outline-offset: 2px;
+  }
+
   #main-content {
     flex: 1 0 auto;
+    outline: none;
   }
 </style>

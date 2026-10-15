@@ -376,12 +376,9 @@ export const workExperiences: WorkExperience[] = [
     domain: 'On-Demand Food Delivery Ecosystem',
     summary: 'Engineering and maintaining production-ready native Android applications across Client, Delivery, and Store platforms serving real-time commercial operations in Cairo.',
     responsibilities: [
-      'Contributed to scalable food delivery applications across Client, Delivery, and Store platforms.',
-      'Developed and maintained production-ready features including product browsing, cart management, checkout flows, notifications, and real-time order tracking.',
-      'Improved application startup time, runtime stability, and overall user experience across multiple production modules.',
-      'Enhanced real-time synchronization and notification reliability using WebSockets, WorkManager, and background services.',
-      'Collaborated in cross-functional squads with backend, QA, and product teams to deliver scalable mobile solutions.',
-      'Participated in ongoing production support, crash triage (Firebase Crashlytics), debugging, and performance optimization.'
+      'Engineered and maintained features across Client, Delivery, and Store Android apps, including cart, checkout, and live order tracking.',
+      'Improved app startup time, memory footprint, and runtime stability with Firebase Crashlytics triage and Android Studio Profiler.',
+      'Implemented reliable background synchronization and real-time push updates using WebSockets, WorkManager, and Foreground Services.'
     ],
     technologies: [
       'Kotlin',
@@ -408,10 +405,9 @@ export const workExperiences: WorkExperience[] = [
     domain: 'Multi-Service Commercial Platform (Dorr)',
     summary: 'Developed and maintained native Android features for a high-traffic multi-service consumer platform spanning Taxi, Restaurants, Hotels, Flights, and Parcel Delivery modules.',
     responsibilities: [
-      'Developed and maintained Android features for multi-service consumer applications including Taxi, Restaurants, Hotels, Flights, and Parcel Delivery modules.',
-      'Built scalable mobile solutions using MVVM and Clean Architecture with a strict focus on performance, maintainability, and clean code practices.',
-      'Integrated REST APIs, optimized background data handling, and improved application responsiveness and memory stability.',
-      'Participated in agile sprint rituals, code reviews, debugging, and multi-market production release cycles.'
+      'Engineered native Android features for multi-service platform Dorr across Taxi, Restaurants, Hotels, Flights, and Parcel Delivery.',
+      'Implemented modular Clean Architecture and MVVM with reactive data handling, REST API integration, and Room local caching.',
+      'Participated in code reviews, bug resolution, and multi-market production releases within agile sprint cycles.'
     ],
     technologies: [
       'Kotlin',

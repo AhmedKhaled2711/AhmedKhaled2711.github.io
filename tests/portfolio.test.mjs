@@ -36,6 +36,16 @@ test('Suite 1: Build Output & File Existence', async (t) => {
     assert.ok(fs.existsSync(cvPath), 'Ahmed_Khaled.pdf must exist in dist');
     assert.strictEqual(fs.statSync(cvPath).size, 105921, 'CV must be exactly 105,921 bytes');
   });
+
+  await t.test('GitHub Pages 404.html and .nojekyll exist', () => {
+    const notFoundPath = path.join(DIST_DIR, '404.html');
+    const nojekyllPath = path.join(DIST_DIR, '.nojekyll');
+
+    assert.ok(fs.existsSync(notFoundPath), 'dist/404.html must exist for GitHub Pages routing');
+    assert.ok(fs.statSync(notFoundPath).size > 2000, '404.html must be > 2KB');
+
+    assert.ok(fs.existsSync(nojekyllPath), 'dist/.nojekyll must exist to bypass Jekyll processing');
+  });
 });
 
 test('Suite 2: Authentic Asset Verification', async (t) => {
@@ -162,3 +172,34 @@ test('Suite 4: Link Integrity & Anchor Verification', async (t) => {
     }
   });
 });
+
+test('Suite 5: GitHub Pages & CI Configuration', async (t) => {
+  const workflowPath = path.resolve('.github', 'workflows', 'deploy.yml');
+  const configPath = path.resolve('astro.config.mjs');
+  const indexHtml = fs.readFileSync(path.join(DIST_DIR, 'index.html'), 'utf8');
+
+  await t.test('deploy.yml exists and matches official Astro recommendation', () => {
+    assert.ok(fs.existsSync(workflowPath), '.github/workflows/deploy.yml must exist');
+    const content = fs.readFileSync(workflowPath, 'utf8');
+
+    assert.match(content, /withastro\/action@v6/i, 'Workflow must use withastro/action@v6');
+    assert.match(content, /actions\/deploy-pages@v4/i, 'Workflow must use actions/deploy-pages@v4');
+    assert.match(content, /workflow_dispatch:/i, 'Workflow must support manual workflow_dispatch');
+    assert.match(content, /branches:\s*\[\s*master/i, 'Workflow must trigger on master branch');
+    assert.match(content, /pages:\s*write/i, 'Workflow permissions must include pages: write');
+    assert.match(content, /id-token:\s*write/i, 'Workflow permissions must include id-token: write');
+  });
+
+  await t.test('astro.config.mjs specifies production site without subpath', () => {
+    const configContent = fs.readFileSync(configPath, 'utf8');
+    assert.match(configContent, /site:\s*['"]https:\/\/ahmedkhaled2711\.github\.io['"]/i, 'site must be set to https://ahmedkhaled2711.github.io');
+    assert.ok(!configContent.includes('base:'), 'base must be omitted or root for user pages');
+  });
+
+  await t.test('production HTML canonical and Open Graph URLs resolve correctly', () => {
+    assert.match(indexHtml, /<link rel="canonical" href="https:\/\/ahmedkhaled2711\.github\.io\/?"/i, 'Canonical link must resolve to root site URL');
+    assert.match(indexHtml, /<meta property="og:url" content="https:\/\/ahmedkhaled2711\.github\.io\/?"/i, 'OG URL must resolve to root site URL');
+    assert.match(indexHtml, /<meta property="og:image" content="https:\/\/ahmedkhaled2711\.github\.io\/images\//i, 'OG Image must resolve to absolute URL');
+  });
+});
+

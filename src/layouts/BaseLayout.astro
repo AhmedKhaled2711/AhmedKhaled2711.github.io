@@ -15,7 +15,8 @@ const {
   ogImage = '/images/projects/hatli-mockup.jpg',
 } = Astro.props;
 
-const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://ahmedkhaled-android.dev');
+const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://ahmedkhaled2711.github.io');
+const ogImageURL = new URL(ogImage, Astro.site || canonicalURL).href;
 ---
 
 <!doctype html>
@@ -43,14 +44,14 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://ahmedkha
     <meta property="og:url" content={canonicalURL} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:image" content={ogImage} />
+    <meta property="og:image" content={ogImageURL} />
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:url" content={canonicalURL} />
     <meta property="twitter:title" content={title} />
     <meta property="twitter:description" content={description} />
-    <meta property="twitter:image" content={ogImage} />
+    <meta property="twitter:image" content={ogImageURL} />
 
     <!-- Theme Initialization Script (Zero-FOUC) -->
     <script is:inline>

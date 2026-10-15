@@ -1,0 +1,237 @@
+---
+import SectionHeading from '../ui/SectionHeading.astro';
+import TechnologyBadge from '../ui/TechnologyBadge.astro';
+import { workExperiences } from '../../data/portfolio';
+---
+
+<section class="section-padding experience-section" id="experience">
+  <div class="container">
+    <SectionHeading
+      eyebrow="Commercial Experience"
+      title="Production Android History"
+      subtitle="Engineering real-world applications serving high-throughput commercial operations across food delivery and multi-service transportation platforms."
+    />
+
+    <div class="experience-stack">
+      {workExperiences.map((job) => (
+        <div class="experience-card">
+          <div class="exp-header">
+            <div class="exp-company-block">
+              <div class="exp-logo-wrapper">
+                <img src={job.logo} alt={`${job.company} logo`} class="exp-logo-img" width="52" height="52" />
+              </div>
+              <div>
+                <div class="exp-title-row">
+                  <h3 class="exp-role">{job.role}</h3>
+                  <span class="exp-company">@ {job.company}</span>
+                  {job.badge && <span class="badge badge-accent badge-sm">{job.badge}</span>}
+                </div>
+                <div class="exp-meta-row">
+                  <span class="meta-date">{job.period}</span>
+                  <span class="meta-dot">•</span>
+                  <span class="meta-location">{job.location}</span>
+                  <span class="meta-dot">•</span>
+                  <span class="meta-domain">{job.domain}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <p class="exp-summary">{job.summary}</p>
+
+          <div class="exp-responsibilities">
+            <h4 class="resp-heading">Key Contributions & Technical Impact:</h4>
+            <ul class="resp-list">
+              {job.responsibilities.map((resp) => (
+                <li class="resp-item">
+                  <span class="bullet-arrow" aria-hidden="true">▹</span>
+                  <span>{resp}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div class="exp-tech-strip">
+            <span class="tech-strip-label">Demonstrated Stack:</span>
+            <div class="tech-badges">
+              {job.technologies.map((tech) => (
+                <TechnologyBadge name={tech} variant="mono" size="sm" />
+              ))}
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .experience-section {
+    background-color: var(--bg-surface);
+    border-bottom: 1px solid var(--border-subtle);
+  }
+
+  .experience-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .experience-card {
+    background-color: var(--bg-surface-elevated);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-lg);
+    padding: clamp(1.5rem, 3.5vw, 2.5rem);
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    transition: all var(--transition-normal);
+  }
+
+  .experience-card:hover {
+    border-color: var(--border-medium);
+    box-shadow: var(--shadow-md);
+  }
+
+  .exp-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+
+  .exp-company-block {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+  }
+
+  .exp-logo-wrapper {
+    width: 56px;
+    height: 56px;
+    border-radius: var(--radius-md);
+    background-color: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6px;
+    flex-shrink: 0;
+    overflow: hidden;
+  }
+
+  .exp-logo-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: calc(var(--radius-md) - 4px);
+  }
+
+  .exp-title-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .exp-role {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text-primary);
+  }
+
+  .exp-company {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: var(--accent);
+  }
+
+  .exp-meta-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 0.35rem;
+    font-family: var(--font-mono);
+    font-size: 0.8125rem;
+    color: var(--text-muted);
+  }
+
+  .meta-dot {
+    color: var(--border-strong);
+  }
+
+  .exp-summary {
+    font-size: 1rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+  }
+
+  .exp-responsibilities {
+    background-color: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-md);
+    padding: 1.25rem 1.5rem;
+  }
+
+  .resp-heading {
+    font-size: 0.875rem;
+    font-family: var(--font-mono);
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    letter-spacing: 0.05em;
+    margin-bottom: 0.875rem;
+  }
+
+  .resp-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.625rem;
+  }
+
+  .resp-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.625rem;
+    font-size: 0.9375rem;
+    line-height: 1.55;
+    color: var(--text-secondary);
+  }
+
+  .bullet-arrow {
+    color: var(--accent);
+    font-size: 0.875rem;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  .exp-tech-strip {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding-top: 0.5rem;
+  }
+
+  @media (min-width: 640px) {
+    .exp-tech-strip {
+      flex-direction: row;
+      align-items: center;
+      gap: 1rem;
+    }
+  }
+
+  .tech-strip-label {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    white-space: nowrap;
+  }
+
+  .tech-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+  }
+</style>

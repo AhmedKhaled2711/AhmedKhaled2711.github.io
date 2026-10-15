@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <!-- Background Canvas: Ice Sage Mist Gradient (#EAF2F1 -> #F5F8F7) -->
+    <linearGradient id="bgGrad" x1="0" y1="0" x2="512" y2="512" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#EAF2F1"/>
+      <stop offset="100%" stop-color="#F5F8F7"/>
+    </linearGradient>
+
+    <!-- Dynamic Courier Wings Gradient: Vibrant Coral (#F16B5A -> #F05C4C) -->
+    <linearGradient id="coralWing1" x1="110" y1="212" x2="375" y2="309" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#F16B5A"/>
+      <stop offset="100%" stop-color="#F05C4C"/>
+    </linearGradient>
+    <linearGradient id="coralWing2" x1="110" y1="225" x2="224" y2="239" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#F16B5A"/>
+      <stop offset="100%" stop-color="#F05C4C"/>
+    </linearGradient>
+    <linearGradient id="coralWing3" x1="132" y1="240" x2="195" y2="252" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#F16B5A"/>
+      <stop offset="100%" stop-color="#F05C4C"/>
+    </linearGradient>
+    <linearGradient id="coralWing4" x1="147" y1="254" x2="182" y2="261" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#F16B5A"/>
+      <stop offset="100%" stop-color="#F05C4C"/>
+    </linearGradient>
+
+    <!-- Subtle Ambient Elevation Shadow -->
+    <filter id="subtleShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="6" stdDeviation="10" flood-color="#102F34" flood-opacity="0.08"/>
+    </filter>
+  </defs>
+
+  <!-- Circular Outer Canvas matching SplashScreen circular emblem presentation -->
+  <circle cx="256" cy="256" r="248" fill="url(#bgGrad)" stroke="#E1ECE9" stroke-width="2"/>
+
+  <!-- Official Hatli Vector Emblem (1:1 from core:designsystem/ic_hatli_logo.xml) -->
+  <g id="hatli-emblem" filter="url(#subtleShadow)">
+    <!-- Top H Structural Crown: Deep Petroleum Teal (#102F34) -->
+    <path d="M201,145h17c8,0 15,7 15,15v38h46v-38c0,-8 7,-15 15,-15h17c8,0 15,7 15,15v47H186v-47c0,-8 7,-15 15,-15z" fill="#102F34"/>
+
+    <!-- Bottom H Structural Foundation: Deep Petroleum Teal (#102F34) -->
+    <path d="M186,251h140v70c0,9 -7,16 -16,16h-15c-9,0 -16,-7 -16,-16v-38l-24,-19 -23,19v38c0,9 -7,16 -16,16h-14c-9,0 -16,-7 -16,-16v-70z" fill="#102F34"/>
+
+    <!-- Dynamic Courier Wings & Speed Swooshes: Vibrant Coral (#F16B5A -> #F05C4C) -->
+    <path d="M110,212C159,212 210,212 253,212L344,212L369,229L375,229L372,241C371,244 369,245 366,245L286,245C239,245 205,260 188,286C183,294 180,302 179,309C174,282 187,258 211,242C229,230 253,223 281,223L339,223L329,219L253,219C206,219 155,219 121,218Z" fill="url(#coralWing1)"/>
+    <path d="M110,225C143,226 173,226 205,226L224,226C209,230 199,234 190,239C164,238 142,235 121,231Z" fill="url(#coralWing2)"/>
+    <path d="M132,240C155,241 176,241 195,241C188,245 183,248 179,252C163,250 148,247 132,244Z" fill="url(#coralWing3)"/>
+    <path d="M147,254C160,255 171,255 182,255L177,261C166,259 157,257 147,254Z" fill="url(#coralWing4)"/>
+
+    <!-- Accent Detail Notch: Ice Sage (#EAF2F1) -->
+    <path d="M329,219h17l8,8h-25z" fill="#EAF2F1"/>
+  </g>
+</svg>

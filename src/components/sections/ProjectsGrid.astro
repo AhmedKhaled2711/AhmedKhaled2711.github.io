@@ -1,0 +1,40 @@
+---
+import SectionHeading from '../ui/SectionHeading.astro';
+import ProjectCard from '../projects/ProjectCard.astro';
+import { selectedProjects } from '../../data/portfolio';
+---
+
+<section class="section-padding projects-section" id="projects">
+  <div class="container">
+    <SectionHeading
+      eyebrow="Selected Android Codebases"
+      title="Production & Systems Engineering"
+      subtitle="Evidence-based native Android applications demonstrating Clean Architecture, Jetpack Compose, offline-first persistence, reactive streams, and hardware integrations."
+    />
+
+    <div class="projects-grid">
+      {selectedProjects.map((project) => (
+        <ProjectCard project={project} />
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .projects-section {
+    background-color: var(--bg-canvas);
+    border-bottom: 1px solid var(--border-subtle);
+  }
+
+  .projects-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.75rem;
+  }
+
+  @media (min-width: 768px) {
+    .projects-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+</style>

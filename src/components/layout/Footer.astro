@@ -1,0 +1,211 @@
+---
+import { personalInfo } from '../../data/portfolio';
+
+const currentYear = 2026;
+---
+
+<footer class="site-footer">
+  <div class="container footer-container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <div class="footer-monogram">
+          <span class="monogram-text">AK</span>
+          <span class="android-dot" aria-hidden="true"></span>
+        </div>
+        <div>
+          <h3 class="footer-name">{personalInfo.name}</h3>
+          <p class="footer-role">{personalInfo.role}</p>
+          <p class="footer-location">{personalInfo.location} • Available for roles across Egypt & GCC</p>
+        </div>
+      </div>
+
+      <div class="footer-links-group">
+        <h4 class="links-title">Navigation</h4>
+        <ul class="links-list">
+          <li><a href="/#about">About</a></li>
+          <li><a href="/#hatli">Hatli (Flagship)</a></li>
+          <li><a href="/projects/hatli">Hatli Case Study</a></li>
+          <li><a href="/#projects">Projects</a></li>
+          <li><a href="/#experience">Experience</a></li>
+          <li><a href="/#skills">Skills</a></li>
+          <li><a href="/#education">Education</a></li>
+          <li><a href="/#contact">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-links-group">
+        <h4 class="links-title">Connect & Code</h4>
+        <ul class="links-list">
+          <li>
+            <a href={personalInfo.social.github} target="_blank" rel="noopener noreferrer" class="external-link">
+              <span>GitHub</span>
+              <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+            </a>
+          </li>
+          <li>
+            <a href={personalInfo.social.linkedin} target="_blank" rel="noopener noreferrer" class="external-link">
+              <span>LinkedIn</span>
+              <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+            </a>
+          </li>
+          <li>
+            <a href={`mailto:${personalInfo.social.email}`} class="external-link">
+              <span>Direct Email</span>
+              <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+            </a>
+          </li>
+          <li>
+            <a href={personalInfo.resumeUrl} download="Ahmed_Khaled_Android_Engineer.pdf" class="external-link">
+              <span>Download CV (PDF)</span>
+              <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p class="copyright">
+        © {currentYear} {personalInfo.name}. Native Android Engineering Portfolio.
+      </p>
+      <p class="stack-info">
+        Engineered with Astro & TypeScript. Zero template dependencies.
+      </p>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    background-color: var(--bg-surface);
+    border-top: 1px solid var(--border-subtle);
+    padding-top: 4rem;
+    padding-bottom: 3rem;
+    margin-top: auto;
+  }
+
+  .footer-container {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+  }
+
+  .footer-top {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  @media (min-width: 768px) {
+    .footer-top {
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 3rem;
+    }
+  }
+
+  .footer-brand {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .footer-monogram {
+    position: relative;
+    width: 44px;
+    height: 44px;
+    border-radius: var(--radius-sm);
+    background-color: var(--bg-surface-elevated);
+    border: 1px solid var(--border-medium);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 1.125rem;
+    color: var(--text-primary);
+    flex-shrink: 0;
+  }
+
+  .android-dot {
+    position: absolute;
+    top: -2px;
+    right: -2px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: var(--accent);
+  }
+
+  .footer-name {
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: var(--text-primary);
+  }
+
+  .footer-role {
+    font-size: 0.875rem;
+    font-family: var(--font-mono);
+    color: var(--accent);
+    margin-top: 0.15rem;
+  }
+
+  .footer-location {
+    font-size: 0.8125rem;
+    color: var(--text-muted);
+    margin-top: 0.5rem;
+  }
+
+  .links-title {
+    font-size: 0.8125rem;
+    font-family: var(--font-mono);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-muted);
+    margin-bottom: 1rem;
+  }
+
+  .links-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.625rem;
+  }
+
+  .links-list a {
+    font-size: 0.9375rem;
+    color: var(--text-secondary);
+    transition: color var(--transition-fast);
+  }
+
+  .links-list a:hover {
+    color: var(--accent);
+  }
+
+  .external-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+  }
+
+  .footer-bottom {
+    padding-top: 2rem;
+    border-top: 1px solid var(--border-subtle);
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    font-size: 0.8125rem;
+    color: var(--text-muted);
+  }
+
+  @media (min-width: 640px) {
+    .footer-bottom {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+
+  .stack-info {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+  }
+</style>

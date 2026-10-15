@@ -1,0 +1,139 @@
+---
+import SectionHeading from '../ui/SectionHeading.astro';
+import { skillGroups } from '../../data/portfolio';
+---
+
+<section class="section-padding skills-section" id="skills">
+  <div class="container">
+    <SectionHeading
+      eyebrow="Technical Matrix"
+      title="Disciplined Android Stack"
+      subtitle="Structured across mobile architecture, reactive streams, platform services, and production quality standards. Zero arbitrary percentage meters."
+    />
+
+    <div class="skills-grid">
+      {skillGroups.map((group, groupIdx) => (
+        <div class="skill-card">
+          <div class="skill-header">
+            <span class="pillar-num">0{groupIdx + 1}</span>
+            <div>
+              <h3 class="pillar-title">{group.category}</h3>
+              <p class="pillar-desc">{group.description}</p>
+            </div>
+          </div>
+
+          <div class="skills-wrap">
+            {group.skills.map((skill) => (
+              <div class={`skill-pill ${skill.priority ? 'priority' : ''}`}>
+                {skill.priority && <span class="priority-indicator" aria-hidden="true">●</span>}
+                <span class="skill-name">{skill.name}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .skills-section {
+    background-color: var(--bg-canvas);
+    border-bottom: 1px solid var(--border-subtle);
+  }
+
+  .skills-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  @media (min-width: 768px) {
+    .skills-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  .skill-card {
+    background-color: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-lg);
+    padding: 1.75rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    transition: all var(--transition-normal);
+  }
+
+  .skill-card:hover {
+    border-color: var(--border-medium);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .skill-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--border-subtle);
+  }
+
+  .pillar-num {
+    font-family: var(--font-mono);
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: var(--accent);
+    flex-shrink: 0;
+  }
+
+  .pillar-title {
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    line-height: 1.3;
+  }
+
+  .pillar-desc {
+    margin-top: 0.25rem;
+    font-size: 0.8125rem;
+    color: var(--text-muted);
+    line-height: 1.5;
+  }
+
+  .skills-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .skill-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.35rem 0.75rem;
+    border-radius: var(--radius-sm);
+    font-size: 0.8125rem;
+    font-weight: 500;
+    background-color: var(--bg-surface-elevated);
+    border: 1px solid var(--border-subtle);
+    color: var(--text-secondary);
+    transition: all var(--transition-fast);
+  }
+
+  .skill-pill:hover {
+    border-color: var(--border-medium);
+    color: var(--text-primary);
+  }
+
+  .skill-pill.priority {
+    background-color: var(--accent-light);
+    border-color: var(--accent-border);
+    color: var(--text-primary);
+    font-weight: 600;
+  }
+
+  .priority-indicator {
+    font-size: 0.5rem;
+    color: var(--accent);
+  }
+</style>

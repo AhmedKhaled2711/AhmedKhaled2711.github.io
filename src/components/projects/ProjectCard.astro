@@ -1,0 +1,248 @@
+---
+import TechnologyBadge from '../ui/TechnologyBadge.astro';
+import type { Project } from '../../data/portfolio';
+
+interface Props {
+  project: Project;
+}
+
+const { project } = Astro.props;
+---
+
+<div class="project-card">
+  <!-- Card Header -->
+  <div class="card-header">
+    <div class="header-left">
+      {project.image ? (
+        <div class="project-icon-wrapper">
+          <img src={project.image} alt={`${project.title} icon`} class="project-icon-img" width="44" height="44" />
+        </div>
+      ) : (
+        <div class="project-icon-fallback">
+          <span class="fallback-letter">{project.title.charAt(0)}</span>
+          <span class="android-subdot" aria-hidden="true"></span>
+        </div>
+      )}
+      <div>
+        <span class="project-domain">{project.domain}</span>
+        <h3 class="project-title">{project.title}</h3>
+      </div>
+    </div>
+    {project.periodOrRole && (
+      <span class="role-badge">{project.periodOrRole}</span>
+    )}
+  </div>
+
+  <!-- Description -->
+  <p class="project-summary">{project.summary}</p>
+
+  <!-- Engineering Highlight -->
+  <div class="highlight-container">
+    <span class="highlight-label">Engineering Highlight:</span>
+    <p class="highlight-text">{project.engineeringHighlight}</p>
+  </div>
+
+  <!-- Tech Stack Tags -->
+  <div class="tech-tags-wrapper">
+    {project.techStack.map((tech) => (
+      <TechnologyBadge name={tech} variant="default" size="sm" />
+    ))}
+  </div>
+
+  <!-- Footer Actions -->
+  <div class="card-actions">
+    {project.githubUrl && (
+      <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" class="action-btn" aria-label={`View ${project.title} on GitHub`}>
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true">
+          <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
+        </svg>
+        <span>Source Code</span>
+      </a>
+    )}
+    {project.demoUrl && (
+      <a href={project.demoUrl} target="_blank" rel="noopener noreferrer" class="action-btn demo-btn" aria-label={`Watch ${project.title} Demo Video`}>
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" color="#EF4444" aria-hidden="true">
+          <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+        </svg>
+        <span>Watch Demo</span>
+      </a>
+    )}
+  </div>
+</div>
+
+<style>
+  .project-card {
+    background-color: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-lg);
+    padding: 1.75rem;
+    display: flex;
+    flex-direction: column;
+    transition: all var(--transition-normal);
+  }
+
+  .project-card:hover {
+    border-color: var(--border-medium);
+    box-shadow: var(--shadow-md);
+    transform: translateY(-2px);
+  }
+
+  .card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .header-left {
+    display: flex;
+    align-items: center;
+    gap: 0.875rem;
+  }
+
+  .project-icon-wrapper {
+    width: 44px;
+    height: 44px;
+    border-radius: var(--radius-sm);
+    background-color: var(--bg-surface-elevated);
+    border: 1px solid var(--border-subtle);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4px;
+    flex-shrink: 0;
+  }
+
+  .project-icon-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  .project-icon-fallback {
+    width: 44px;
+    height: 44px;
+    border-radius: var(--radius-sm);
+    background-color: var(--bg-surface-elevated);
+    border: 1px solid var(--border-medium);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    font-weight: 800;
+    font-size: 1.125rem;
+    color: var(--accent);
+    flex-shrink: 0;
+  }
+
+  .android-subdot {
+    position: absolute;
+    top: -2px;
+    right: -2px;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: var(--accent);
+  }
+
+  .project-domain {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    display: block;
+  }
+
+  .project-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    line-height: 1.25;
+  }
+
+  .role-badge {
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    color: var(--accent);
+    background-color: var(--accent-light);
+    border: 1px solid var(--accent-border);
+    padding: 0.2rem 0.5rem;
+    border-radius: var(--radius-full);
+    white-space: nowrap;
+    font-weight: 600;
+  }
+
+  .project-summary {
+    font-size: 0.9375rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: 1.25rem;
+  }
+
+  .highlight-container {
+    background-color: var(--bg-surface-elevated);
+    border-left: 3px solid var(--accent);
+    border-radius: var(--radius-xs);
+    padding: 0.875rem 1rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .highlight-label {
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--accent);
+    display: block;
+    margin-bottom: 0.25rem;
+    letter-spacing: 0.05em;
+  }
+
+  .highlight-text {
+    font-size: 0.8125rem;
+    color: var(--text-primary);
+    line-height: 1.5;
+  }
+
+  .tech-tags-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-bottom: 1.5rem;
+    margin-top: auto;
+  }
+
+  .card-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border-subtle);
+  }
+
+  .action-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.8125rem;
+    font-family: var(--font-mono);
+    font-weight: 600;
+    color: var(--text-secondary);
+    padding: 0.4rem 0.75rem;
+    border-radius: var(--radius-sm);
+    background-color: var(--bg-surface-elevated);
+    border: 1px solid var(--border-subtle);
+    transition: all var(--transition-fast);
+  }
+
+  .action-btn:hover {
+    color: var(--text-primary);
+    border-color: var(--border-medium);
+    transform: translateY(-1px);
+  }
+
+  .demo-btn:hover {
+    color: #EF4444;
+    border-color: rgba(239, 68, 68, 0.4);
+  }
+</style>

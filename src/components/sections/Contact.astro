@@ -1,0 +1,188 @@
+---
+import SectionHeading from '../ui/SectionHeading.astro';
+import { personalInfo } from '../../data/portfolio';
+---
+
+<section class="section-padding contact-section" id="contact">
+  <div class="container container-narrow">
+    <SectionHeading
+      eyebrow="Open For Opportunities"
+      title="Initiate Technical Dialogue"
+      subtitle="Seeking a production-minded Native Android Engineer experienced in Jetpack Compose, modular Clean Architecture, and real-time reliability? Let's discuss engineering impact."
+      align="center"
+    />
+
+    <div class="contact-card">
+      <div class="contact-main">
+        <span class="direct-email-label">Verified Professional Email</span>
+        <a href={`mailto:${personalInfo.social.email}`} class="direct-email-link">
+          {personalInfo.social.email}
+        </a>
+        <p class="response-time-note">
+          Primary channel for engineering managers, tech leads, and recruiters across Egypt and the Gulf.
+        </p>
+
+        <div class="contact-actions-grid">
+          <a href={`mailto:${personalInfo.social.email}?subject=Android%20Engineering%20Opportunity`} class="btn btn-primary">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect width="20" height="16" x="2" y="4" rx="2"></rect>
+              <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+            </svg>
+            <span>Send Email Directly</span>
+          </a>
+
+          <a href={personalInfo.resumeUrl} download="Ahmed_Khaled_Android_Engineer.pdf" class="btn btn-secondary">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+              <polyline points="7 10 12 15 17 10"></polyline>
+              <line x1="12" y1="15" x2="12" y2="3"></line>
+            </svg>
+            <span>Download Full CV (PDF)</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="contact-network-strip">
+        <div class="network-item">
+          <span class="network-type">Source Code & PRs</span>
+          <a href={personalInfo.social.github} target="_blank" rel="noopener noreferrer" class="network-link">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true">
+              <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
+            </svg>
+            <span>GitHub Profile</span>
+          </a>
+        </div>
+
+        <div class="network-item">
+          <span class="network-type">Professional Network</span>
+          <a href={personalInfo.social.linkedin} target="_blank" rel="noopener noreferrer" class="network-link">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true">
+              <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+            </svg>
+            <span>LinkedIn Profile</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .contact-section {
+    background-color: var(--bg-canvas);
+  }
+
+  .contact-card {
+    background-color: var(--bg-surface);
+    border: 1px solid var(--border-medium);
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+  }
+
+  .contact-main {
+    padding: clamp(2rem, 5vw, 3.5rem);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .direct-email-label {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--accent);
+    margin-bottom: 0.5rem;
+  }
+
+  .direct-email-link {
+    font-size: clamp(1.25rem, 3.5vw, 1.875rem);
+    font-weight: 700;
+    color: var(--text-primary);
+    text-decoration: underline;
+    text-decoration-color: var(--accent);
+    text-underline-offset: 6px;
+    transition: color var(--transition-fast);
+    word-break: break-all;
+  }
+
+  .direct-email-link:hover {
+    color: var(--accent);
+  }
+
+  .response-time-note {
+    font-size: 0.9375rem;
+    color: var(--text-secondary);
+    max-width: 520px;
+    margin-top: 1rem;
+    line-height: 1.55;
+  }
+
+  .contact-actions-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 2rem;
+    width: 100%;
+  }
+
+  .contact-network-strip {
+    display: grid;
+    grid-template-columns: 1fr;
+    border-top: 1px solid var(--border-subtle);
+    background-color: var(--bg-surface-elevated);
+  }
+
+  @media (min-width: 600px) {
+    .contact-network-strip {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  .network-item {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    text-align: center;
+  }
+
+  .network-item:first-child {
+    border-bottom: 1px solid var(--border-subtle);
+  }
+
+  @media (min-width: 600px) {
+    .network-item:first-child {
+      border-bottom: none;
+      border-right: 1px solid var(--border-subtle);
+    }
+  }
+
+  .network-type {
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    letter-spacing: 0.05em;
+  }
+
+  .network-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9375rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    transition: color var(--transition-fast);
+  }
+
+  .network-link:hover {
+    color: var(--accent);
+  }
+</style>

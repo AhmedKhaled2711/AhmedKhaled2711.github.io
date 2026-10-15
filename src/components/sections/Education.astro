@@ -1,0 +1,302 @@
+---
+import SectionHeading from '../ui/SectionHeading.astro';
+import { educationHistory, continuousLearningCourses } from '../../data/portfolio';
+---
+
+<section class="section-padding education-section" id="education">
+  <div class="container">
+    <SectionHeading
+      eyebrow="Credentials & Foundations"
+      title="Education & Continuous Learning"
+      subtitle="Formal computer science degree coupled with intensive post-graduate mobile engineering training and continuous algorithmic advancement."
+    />
+
+    <!-- Main Degrees / Diplomas -->
+    <div class="education-grid">
+      {educationHistory.map((edu) => (
+        <div class="edu-card">
+          <div class="edu-header">
+            <div class="edu-logo-wrapper">
+              <img src={edu.logo} alt={`${edu.institution} crest`} class="edu-logo-img" width="48" height="48" />
+            </div>
+            <div>
+              <span class="edu-period">{edu.period}</span>
+              <h3 class="edu-degree">{edu.degree}</h3>
+              <p class="edu-institution">{edu.institution}</p>
+            </div>
+          </div>
+
+          <p class="edu-desc">{edu.description}</p>
+
+          {edu.grade && (
+            <div class="edu-grade-badge">
+              <span class="grade-label">Academic Evaluation:</span>
+              <span class="grade-text">{edu.grade}</span>
+            </div>
+          )}
+
+          <div class="edu-highlights">
+            <h4 class="highlights-title">Core Focus & Curricular Foundations:</h4>
+            <ul class="highlights-list">
+              {edu.highlights.map((item) => (
+                <li class="highlight-item">
+                  <span class="bullet" aria-hidden="true">▹</span>
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- Continuous Learning Courses Strip -->
+    <div class="courses-container">
+      <div class="courses-header">
+        <h4 class="courses-title">Continuous Learning & Specializations</h4>
+        <span class="courses-tag">Verified Coursework</span>
+      </div>
+      <div class="courses-grid">
+        {continuousLearningCourses.map((course) => (
+          <div class="course-card">
+            <div class="course-meta">
+              <span class="provider-pill">{course.provider}</span>
+            </div>
+            <h5 class="course-name">{course.title}</h5>
+            <p class="course-desc">{course.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .education-section {
+    background-color: var(--bg-surface);
+    border-bottom: 1px solid var(--border-subtle);
+  }
+
+  .education-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    margin-bottom: 3.5rem;
+  }
+
+  @media (min-width: 860px) {
+    .education-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  .edu-card {
+    background-color: var(--bg-surface-elevated);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-lg);
+    padding: clamp(1.5rem, 3vw, 2.25rem);
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    transition: all var(--transition-normal);
+  }
+
+  .edu-card:hover {
+    border-color: var(--border-medium);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .edu-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.25rem;
+  }
+
+  .edu-logo-wrapper {
+    width: 52px;
+    height: 52px;
+    border-radius: var(--radius-md);
+    background-color: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6px;
+    flex-shrink: 0;
+    overflow: hidden;
+  }
+
+  .edu-logo-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  .edu-period {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--accent);
+    font-weight: 600;
+  }
+
+  .edu-degree {
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    line-height: 1.3;
+    margin-top: 0.2rem;
+  }
+
+  .edu-institution {
+    font-size: 0.875rem;
+    color: var(--text-muted);
+    margin-top: 0.25rem;
+  }
+
+  .edu-desc {
+    font-size: 0.9375rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+  }
+
+  .edu-grade-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.4rem 0.85rem;
+    border-radius: var(--radius-sm);
+    background-color: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
+    font-size: 0.8125rem;
+    width: fit-content;
+  }
+
+  .grade-label {
+    font-family: var(--font-mono);
+    color: var(--text-muted);
+    font-size: 0.75rem;
+  }
+
+  .grade-text {
+    font-weight: 600;
+    color: var(--accent);
+  }
+
+  .edu-highlights {
+    background-color: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-sm);
+    padding: 1.25rem;
+    margin-top: auto;
+  }
+
+  .highlights-title {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    letter-spacing: 0.05em;
+    margin-bottom: 0.75rem;
+  }
+
+  .highlights-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .highlight-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5rem;
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+  }
+
+  .bullet {
+    color: var(--accent);
+    flex-shrink: 0;
+  }
+
+  /* Continuous Learning */
+  .courses-container {
+    background-color: var(--bg-surface-elevated);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-lg);
+    padding: clamp(1.5rem, 3vw, 2.25rem);
+  }
+
+  .courses-header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--border-subtle);
+  }
+
+  .courses-title {
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: var(--text-primary);
+  }
+
+  .courses-tag {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--accent);
+    background-color: var(--accent-light);
+    border: 1px solid var(--accent-border);
+    padding: 0.15rem 0.5rem;
+    border-radius: var(--radius-full);
+    font-weight: 600;
+  }
+
+  .courses-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  @media (min-width: 768px) {
+    .courses-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .course-card {
+    background-color: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-md);
+    padding: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .provider-pill {
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    font-weight: 700;
+    color: var(--text-muted);
+    text-transform: uppercase;
+  }
+
+  .course-name {
+    font-size: 0.9375rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    line-height: 1.35;
+  }
+
+  .course-desc {
+    font-size: 0.8125rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+  }
+</style>

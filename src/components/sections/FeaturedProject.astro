@@ -1,0 +1,891 @@
+---
+import SectionHeading from '../ui/SectionHeading.astro';
+import TechnologyBadge from '../ui/TechnologyBadge.astro';
+import { hatliProject } from '../../data/portfolio';
+---
+
+<section class="section-padding hatli-flagship-section" id="hatli">
+  <div class="container">
+    <SectionHeading
+      eyebrow="Flagship Android Project"
+      title="Hatli — هاتلي"
+      subtitle={hatliProject.tagline}
+    />
+
+    <!-- Flagship Showcase Card -->
+    <div class="hatli-card">
+      <!-- Header Banner -->
+      <div class="hatli-card-header">
+        <div class="hatli-brand-row">
+          <div class="hatli-logo-wrapper">
+            <img src={hatliProject.images.logo} alt="Hatli Brand Logo" width="48" height="48" class="hatli-logo-img" />
+          </div>
+          <div>
+            <div class="badge-row">
+              <span class="badge badge-accent">
+                <span class="dot-live" aria-hidden="true"></span>
+                {hatliProject.badge}
+              </span>
+              <span class="badge badge-mono">Kotlin 2.0 • Compose BOM 2025</span>
+            </div>
+            <h3 class="hatli-main-title">{hatliProject.titleEn} <span class="ar-title">({hatliProject.titleAr})</span></h3>
+          </div>
+        </div>
+
+        <p class="hatli-summary-text">{hatliProject.summary}</p>
+
+        <!-- CTA Buttons -->
+        <div class="hatli-action-row">
+          <a href="/projects/hatli" class="btn btn-primary">
+            <span>Explore Technical Case Study</span>
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </a>
+          <a href={hatliProject.githubUrl} target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true">
+              <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
+            </svg>
+            <span>View Source on GitHub</span>
+          </a>
+          {hatliProject.videoUrl && (
+            <a href={hatliProject.videoUrl} target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" color="#EF4444" aria-hidden="true">
+                <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+              </svg>
+              <span>Watch Video Walkthrough</span>
+            </a>
+          )}
+        </div>
+
+        <!-- Tech Stack Badges -->
+        <div class="hatli-tags-row">
+          {hatliProject.techStack.map((tech) => (
+            <TechnologyBadge name={tech} variant="default" size="sm" />
+          ))}
+        </div>
+      </div>
+
+      <!-- Authentic Device Mockup Showcase -->
+      <div class="hatli-visual-stage">
+        <div class="mockup-frame">
+          <img
+            src={hatliProject.images.mockup}
+            alt="Hatli Native Android App UI showcase featuring mobile screens on physical devices"
+            class="mockup-img"
+            loading="eager"
+            width="1200"
+            height="675"
+          />
+        </div>
+        <div class="mockup-caption-bar">
+          <span class="caption-tag">Verified Production UI</span>
+          <p class="caption-text">
+            3-step errand wizard • 5-stage real-time lifecycle tracking timeline • Live in-app messaging • Landmark-first delivery drop-offs
+          </p>
+        </div>
+      </div>
+
+      <!-- Problem vs Solution Comparison -->
+      <div class="problem-solution-grid">
+        <div class="ps-card problem-card">
+          <div class="ps-header">
+            <span class="ps-icon">⚠️</span>
+            <h4 class="ps-title">The Emerging Market Friction</h4>
+          </div>
+          <p class="ps-body">{hatliProject.problem}</p>
+        </div>
+
+        <div class="ps-card solution-card">
+          <div class="ps-header">
+            <span class="ps-icon">💡</span>
+            <h4 class="ps-title">The Hatli Native Solution</h4>
+          </div>
+          <p class="ps-body">{hatliProject.solution}</p>
+        </div>
+      </div>
+
+      <!-- Interactive Tabbed Deep Dive (Vanilla JS Tab Switcher) -->
+      <div class="hatli-tabs-wrapper">
+        <div class="tabs-header" role="tablist" aria-label="Hatli Architecture Sections">
+          <button class="tab-trigger active" role="tab" aria-selected="true" data-tab="arch">
+            12-Module Clean Architecture
+          </button>
+          <button class="tab-trigger" role="tab" aria-selected="false" data-tab="decisions">
+            Engineering Decisions & Concurrency
+          </button>
+          <button class="tab-trigger" role="tab" aria-selected="false" data-tab="workflow">
+            End-to-End User Journey
+          </button>
+          <button class="tab-trigger" role="tab" aria-selected="false" data-tab="matrix">
+            Feature Matrix & Technical Status
+          </button>
+        </div>
+
+        <div class="tabs-content">
+          <!-- Tab 1: 12-Module Architecture -->
+          <div class="tab-pane active" id="pane-arch">
+            <div class="arch-pane-intro">
+              <p>
+                Hatli is decoupled into <strong>12 dedicated Gradle modules</strong> enforcing compile-time dependency inversion, strict layer encapsulation, and high Gradle build-cache efficiency.
+              </p>
+            </div>
+            <div class="modules-grid">
+              {hatliProject.modules.map((m) => (
+                <div class={`module-card module-${m.type}`}>
+                  <div class="module-header">
+                    <span class={`module-type-badge type-${m.type}`}>{m.type}</span>
+                    <code class="module-name">{m.name}</code>
+                  </div>
+                  <p class="module-responsibility">{m.responsibility}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <!-- Tab 2: Engineering Decisions -->
+          <div class="tab-pane" id="pane-decisions">
+            <div class="decisions-grid">
+              {hatliProject.deepDives.map((dive, idx) => (
+                <div class="decision-card">
+                  <div class="decision-top">
+                    <span class="decision-index">0{idx + 1}</span>
+                    <div>
+                      <h4 class="decision-title">{dive.title}</h4>
+                      <p class="decision-sub">{dive.subtitle}</p>
+                    </div>
+                  </div>
+                  <div class="decision-section">
+                    <span class="section-label">Challenge:</span>
+                    <p class="section-text">{dive.problem}</p>
+                  </div>
+                  <div class="decision-section">
+                    <span class="section-label">Implementation:</span>
+                    <p class="section-text">{dive.implementation}</p>
+                  </div>
+                  <div class="decision-why">
+                    <span class="why-label">Engineering Trade-off & Value:</span>
+                    <p class="why-text">{dive.whyItMatters}</p>
+                  </div>
+                  {dive.codeSnippet && (
+                    <div class="decision-code">
+                      <pre><code>{dive.codeSnippet}</code></pre>
+                    </div>
+                  )}
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <!-- Tab 3: End-to-End User Journey -->
+          <div class="tab-pane" id="pane-workflow">
+            <div class="workflow-timeline">
+              {hatliProject.workflow.map((item) => (
+                <div class="workflow-step">
+                  <div class="step-marker">
+                    <span class="step-num">{item.step}</span>
+                    <span class={`actor-pill actor-${item.actor.toLowerCase()}`}>{item.actor}</span>
+                  </div>
+                  <div class="step-body">
+                    <h5 class="step-title">{item.title}</h5>
+                    <p class="step-desc">{item.description}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <!-- Tab 4: Feature Matrix & Status -->
+          <div class="tab-pane" id="pane-matrix">
+            <div class="matrix-grid">
+              <div class="matrix-column verified-column">
+                <div class="matrix-header">
+                  <span class="matrix-indicator verified"></span>
+                  <h4>Verified Implemented Capabilities</h4>
+                </div>
+                <ul class="matrix-list">
+                  {hatliProject.verifiedFeatures.map((feat) => (
+                    <li class="matrix-item verified">
+                      <svg viewBox="0 0 20 20" width="16" height="16" fill="currentColor" class="matrix-icon green" aria-hidden="true">
+                        <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                      </svg>
+                      <span>{feat}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <div class="matrix-column planned-column">
+                <div class="matrix-header">
+                  <span class="matrix-indicator planned"></span>
+                  <h4>Planned / Hardening Next Steps</h4>
+                </div>
+                <ul class="matrix-list">
+                  {hatliProject.plannedFeatures.map((feat) => (
+                    <li class="matrix-item planned">
+                      <svg viewBox="0 0 20 20" width="16" height="16" fill="currentColor" class="matrix-icon amber" aria-hidden="true">
+                        <circle cx="10" cy="10" r="6" fill="none" stroke="currentColor" stroke-width="2" />
+                      </svg>
+                      <span>{feat}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bottom Case Study Prompt -->
+      <div class="hatli-footer-banner">
+        <div>
+          <h4 class="banner-title">Want to review the complete technical case study?</h4>
+          <p class="banner-sub">Read the dedicated engineering breakdown with full module dependency graph and Firestore schema patterns.</p>
+        </div>
+        <a href="/projects/hatli" class="btn btn-primary">
+          <span>Read Full Hatli Case Study →</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .hatli-flagship-section {
+    background-color: var(--bg-canvas);
+    border-bottom: 1px solid var(--border-subtle);
+  }
+
+  .hatli-card {
+    background-color: var(--bg-surface);
+    border: 1px solid var(--border-medium);
+    border-radius: var(--radius-xl);
+    padding: clamp(1.5rem, 4vw, 3rem);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .hatli-card-header {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .hatli-brand-row {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+  }
+
+  .hatli-logo-wrapper {
+    width: 60px;
+    height: 60px;
+    border-radius: var(--radius-md);
+    background-color: var(--bg-surface-elevated);
+    border: 1px solid var(--border-subtle);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px;
+    flex-shrink: 0;
+  }
+
+  .hatli-logo-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  .badge-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 0.35rem;
+  }
+
+  .dot-live {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: var(--accent);
+    box-shadow: 0 0 6px var(--accent);
+  }
+
+  .hatli-main-title {
+    font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+    font-weight: 800;
+    color: var(--text-primary);
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+  }
+
+  .ar-title {
+    font-weight: 600;
+    color: var(--text-muted);
+  }
+
+  .hatli-summary-text {
+    font-size: 1.0625rem;
+    line-height: 1.65;
+    color: var(--text-secondary);
+    max-width: 900px;
+  }
+
+  .hatli-action-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.875rem;
+  }
+
+  .hatli-tags-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    padding-top: 0.5rem;
+  }
+
+  /* Visual Stage */
+  .hatli-visual-stage {
+    margin-top: 2.5rem;
+    margin-bottom: 2.5rem;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    background-color: var(--bg-surface-elevated);
+    border: 1px solid var(--border-subtle);
+  }
+
+  .mockup-frame {
+    width: 100%;
+    overflow: hidden;
+    background-color: #000;
+  }
+
+  .mockup-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+    transition: transform var(--transition-smooth);
+  }
+
+  .mockup-frame:hover .mockup-img {
+    transform: scale(1.015);
+  }
+
+  .mockup-caption-bar {
+    padding: 1rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    background-color: var(--bg-surface-elevated);
+    border-top: 1px solid var(--border-subtle);
+  }
+
+  @media (min-width: 640px) {
+    .mockup-caption-bar {
+      flex-direction: row;
+      align-items: center;
+      gap: 1rem;
+    }
+  }
+
+  .caption-tag {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--accent);
+    padding: 0.2rem 0.6rem;
+    border-radius: var(--radius-xs);
+    background-color: var(--accent-light);
+    border: 1px solid var(--accent-border);
+    white-space: nowrap;
+    width: fit-content;
+  }
+
+  .caption-text {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+  }
+
+  /* Problem vs Solution */
+  .problem-solution-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+  }
+
+  @media (min-width: 768px) {
+    .problem-solution-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  .ps-card {
+    padding: 1.5rem;
+    border-radius: var(--radius-md);
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .problem-card {
+    background-color: var(--bg-surface-elevated);
+    border: 1px solid rgba(239, 68, 68, 0.25);
+  }
+
+  .solution-card {
+    background-color: var(--bg-surface-elevated);
+    border: 1px solid var(--accent-border);
+  }
+
+  .ps-header {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .ps-icon {
+    font-size: 1.25rem;
+  }
+
+  .ps-title {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--text-primary);
+  }
+
+  .ps-body {
+    font-size: 0.9375rem;
+    line-height: 1.6;
+    color: var(--text-secondary);
+  }
+
+  /* Tabs System */
+  .hatli-tabs-wrapper {
+    background-color: var(--bg-surface-elevated);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+  }
+
+  .tabs-header {
+    display: flex;
+    overflow-x: auto;
+    background-color: var(--bg-surface-inset);
+    border-bottom: 1px solid var(--border-subtle);
+    padding: 0.5rem 0.5rem 0;
+    gap: 0.25rem;
+  }
+
+  .tab-trigger {
+    padding: 0.75rem 1.25rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    border-radius: var(--radius-sm) var(--radius-sm) 0 0;
+    transition: all var(--transition-fast);
+    white-space: nowrap;
+    border-bottom: 2px solid transparent;
+  }
+
+  .tab-trigger:hover {
+    color: var(--text-primary);
+    background-color: var(--bg-surface-elevated);
+  }
+
+  .tab-trigger.active {
+    color: var(--accent);
+    background-color: var(--bg-surface-elevated);
+    border-bottom-color: var(--accent);
+  }
+
+  .tabs-content {
+    padding: 1.75rem;
+  }
+
+  .tab-pane {
+    display: none;
+  }
+
+  .tab-pane.active {
+    display: block;
+  }
+
+  /* Modules Grid */
+  .arch-pane-intro {
+    margin-bottom: 1.5rem;
+    font-size: 0.9375rem;
+    color: var(--text-secondary);
+  }
+
+  .modules-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.875rem;
+  }
+
+  @media (min-width: 640px) {
+    .modules-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .modules-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .module-card {
+    padding: 1rem;
+    background-color: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-sm);
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    transition: border-color var(--transition-fast);
+  }
+
+  .module-card:hover {
+    border-color: var(--accent-border);
+  }
+
+  .module-header {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .module-type-badge {
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    text-transform: uppercase;
+    padding: 0.1rem 0.4rem;
+    border-radius: var(--radius-xs);
+    font-weight: 700;
+  }
+
+  .type-app { background-color: #FEE2E2; color: #DC2626; }
+  .type-core { background-color: #DBEAFE; color: #2563EB; }
+  .type-feature { background-color: #DCFCE7; color: #16A34A; }
+
+  :global([data-theme="dark"]) .type-app { background-color: rgba(220, 38, 38, 0.2); color: #F87171; }
+  :global([data-theme="dark"]) .type-core { background-color: rgba(37, 99, 235, 0.2); color: #60A5FA; }
+  :global([data-theme="dark"]) .type-feature { background-color: rgba(22, 163, 74, 0.2); color: #4ADE80; }
+
+  .module-name {
+    font-family: var(--font-mono);
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--text-primary);
+  }
+
+  .module-responsibility {
+    font-size: 0.8125rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+  }
+
+  /* Decisions Grid */
+  .decisions-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  @media (min-width: 860px) {
+    .decisions-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  .decision-card {
+    padding: 1.5rem;
+    background-color: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-md);
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .decision-top {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.875rem;
+  }
+
+  .decision-index {
+    font-family: var(--font-mono);
+    font-size: 1.125rem;
+    font-weight: 800;
+    color: var(--accent);
+  }
+
+  .decision-title {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--text-primary);
+  }
+
+  .decision-sub {
+    font-size: 0.8125rem;
+    font-family: var(--font-mono);
+    color: var(--text-muted);
+  }
+
+  .decision-section {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .section-label {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: var(--text-muted);
+  }
+
+  .section-text {
+    font-size: 0.875rem;
+    line-height: 1.6;
+    color: var(--text-secondary);
+  }
+
+  .decision-why {
+    padding: 0.75rem;
+    border-radius: var(--radius-sm);
+    background-color: var(--bg-surface-elevated);
+    border-left: 3px solid var(--accent);
+  }
+
+  .why-label {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--accent);
+    display: block;
+    margin-bottom: 0.2rem;
+  }
+
+  .why-text {
+    font-size: 0.8125rem;
+    color: var(--text-primary);
+    line-height: 1.5;
+  }
+
+  .decision-code {
+    background-color: var(--code-bg);
+    border: 1px solid var(--code-border);
+    border-radius: var(--radius-xs);
+    padding: 0.75rem;
+    overflow-x: auto;
+  }
+
+  .decision-code pre {
+    margin: 0;
+    font-size: 0.75rem;
+    line-height: 1.5;
+    color: var(--code-text);
+  }
+
+  /* Workflow Timeline */
+  .workflow-timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    position: relative;
+  }
+
+  .workflow-step {
+    display: flex;
+    gap: 1.25rem;
+    padding: 1.25rem;
+    background-color: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-md);
+  }
+
+  .step-marker {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.35rem;
+    flex-shrink: 0;
+  }
+
+  .step-num {
+    font-family: var(--font-mono);
+    font-weight: 800;
+    font-size: 1.125rem;
+    color: var(--accent);
+  }
+
+  .actor-pill {
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    padding: 0.15rem 0.45rem;
+    border-radius: var(--radius-full);
+    font-weight: 600;
+  }
+
+  .actor-requester { background-color: #DBEAFE; color: #1E40AF; }
+  .actor-runner { background-color: #DCFCE7; color: #166534; }
+  .actor-system { background-color: #F3E8FF; color: #6B21A8; }
+
+  :global([data-theme="dark"]) .actor-requester { background-color: rgba(30, 64, 175, 0.3); color: #93C5FD; }
+  :global([data-theme="dark"]) .actor-runner { background-color: rgba(22, 101, 52, 0.3); color: #86EFAC; }
+  :global([data-theme="dark"]) .actor-system { background-color: rgba(107, 33, 168, 0.3); color: #D8B4FE; }
+
+  .step-body {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .step-title {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--text-primary);
+  }
+
+  .step-desc {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+  }
+
+  /* Matrix Grid */
+  .matrix-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  @media (min-width: 768px) {
+    .matrix-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  .matrix-column {
+    padding: 1.5rem;
+    background-color: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-md);
+  }
+
+  .matrix-header {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 1.25rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid var(--border-subtle);
+  }
+
+  .matrix-header h4 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--text-primary);
+  }
+
+  .matrix-indicator {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+  }
+
+  .matrix-indicator.verified { background-color: #10B981; }
+  .matrix-indicator.planned { background-color: #F59E0B; }
+
+  .matrix-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.875rem;
+  }
+
+  .matrix-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.625rem;
+    font-size: 0.875rem;
+    line-height: 1.5;
+    color: var(--text-secondary);
+  }
+
+  .matrix-icon {
+    flex-shrink: 0;
+    margin-top: 3px;
+  }
+
+  .matrix-icon.green { color: #10B981; }
+  .matrix-icon.amber { color: #F59E0B; }
+
+  /* Footer Banner */
+  .hatli-footer-banner {
+    margin-top: 3rem;
+    padding: 1.75rem 2rem;
+    background: linear-gradient(135deg, var(--bg-surface-elevated), var(--bg-surface));
+    border: 1px solid var(--border-medium);
+    border-radius: var(--radius-lg);
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    align-items: flex-start;
+  }
+
+  @media (min-width: 768px) {
+    .hatli-footer-banner {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+
+  .banner-title {
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: var(--text-primary);
+  }
+
+  .banner-sub {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    margin-top: 0.25rem;
+  }
+</style>
+
+<script>
+  // Tab switching logic
+  const tabTriggers = document.querySelectorAll<HTMLButtonElement>('.tab-trigger');
+  const tabPanes = document.querySelectorAll<HTMLElement>('.tab-pane');
+
+  tabTriggers.forEach((trigger) => {
+    trigger.addEventListener('click', () => {
+      const targetId = trigger.getAttribute('data-tab');
+
+      // Update triggers
+      tabTriggers.forEach((btn) => {
+        btn.classList.remove('active');
+        btn.setAttribute('aria-selected', 'false');
+      });
+      trigger.classList.add('active');
+      trigger.setAttribute('aria-selected', 'true');
+
+      // Update panes
+      tabPanes.forEach((pane) => {
+        pane.classList.remove('active');
+      });
+      const activePane = document.getElementById(`pane-${targetId}`);
+      if (activePane) {
+        activePane.classList.add('active');
+      }
+    });
+  });
+</script>

@@ -1,0 +1,846 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { hatliProject } from '../../data/portfolio';
+---
+
+<BaseLayout
+  title={`${hatliProject.titleEn} (${hatliProject.titleAr}) — Technical Android Case Study | Ahmed Khaled`}
+  description="Technical engineering case study for Hatli: A 12-module Clean Architecture Android application built with Kotlin, Jetpack Compose, Hilt, Coroutines, and Cloud Firestore."
+  ogImage={hatliProject.images.mockup}
+>
+  <article class="case-study-page">
+    <!-- Breadcrumb & Back Navigation -->
+    <div class="case-study-nav-bar">
+      <div class="container">
+        <a href="/#hatli" class="back-link">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line x1="19" y1="12" x2="5" y2="12"></line>
+            <polyline points="12 19 5 12 12 5"></polyline>
+          </svg>
+          <span>Back to Portfolio</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Case Study Header -->
+    <header class="case-study-hero">
+      <div class="container">
+        <div class="hero-badge-strip">
+          <span class="badge badge-accent">Production Architecture Case Study</span>
+          <span class="badge badge-mono">Min SDK 29 • Target SDK 35</span>
+        </div>
+
+        <h1 class="case-study-title">
+          {hatliProject.titleEn} <span class="arabic-sub">({hatliProject.titleAr})</span>
+        </h1>
+        <p class="case-study-tagline">{hatliProject.tagline}</p>
+
+        <p class="case-study-lead">
+          An engineering breakdown of a hyperlocal errand marketplace built for emerging markets lacking structured address grids. Designed with a 12-module Clean Architecture, Unidirectional Data Flow, resource-safe Firestore snapshot streams, and native Arabic Right-to-Left (RTL) isolation.
+        </p>
+
+        <div class="case-study-actions">
+          <a href={hatliProject.githubUrl} target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true">
+              <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
+            </svg>
+            <span>Inspect GitHub Repository</span>
+          </a>
+          {hatliProject.videoUrl && (
+            <a href={hatliProject.videoUrl} target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" color="#EF4444" aria-hidden="true">
+                <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+              </svg>
+              <span>Watch Video Walkthrough</span>
+            </a>
+          )}
+        </div>
+
+        <div class="case-study-meta-grid">
+          <div class="meta-card">
+            <span class="meta-label">Core Tech</span>
+            <span class="meta-val">Kotlin 2.0 • Jetpack Compose</span>
+          </div>
+          <div class="meta-card">
+            <span class="meta-label">Architecture</span>
+            <span class="meta-val">12-Module Clean Arch + UDF</span>
+          </div>
+          <div class="meta-card">
+            <span class="meta-label">Data Layer</span>
+            <span class="meta-val">Firestore + Room (Offline-First)</span>
+          </div>
+          <div class="meta-card">
+            <span class="meta-label">Binary Model</span>
+            <span class="meta-val">Dual-Persona (Requester / Runner)</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Visual Showcase Showcase -->
+    <section class="section-padding container">
+      <div class="hero-image-frame">
+        <img
+          src={hatliProject.images.mockup}
+          alt="Hatli UI Mockup Showcase on Devices"
+          class="case-study-hero-img"
+          loading="eager"
+          width="1200"
+          height="675"
+        />
+      </div>
+    </section>
+
+    <!-- SECTION 1: Product Context & Domain Challenge -->
+    <section class="section-padding content-section container-narrow">
+      <div class="section-badge">01 • Domain Context</div>
+      <h2 class="content-heading">The Emerging Market Friction</h2>
+      
+      <p class="content-para">
+        Standard on-demand platforms (e.g., Talabat, DoorDash) depend heavily on structured urban data: geocoded street addresses, standardized building numbers, and digital catalog menus linked to merchant POS terminals.
+      </p>
+
+      <div class="comparison-block">
+        <div class="problem-side">
+          <h3 class="side-title">Where Existing Apps Fail:</h3>
+          <ul class="styled-list">
+            <li><strong>No Address Coordinates:</strong> Small towns in Egypt operate via informal landmarks (e.g., "Behind the Grand Mosque, 2nd floor above the pharmacy").</li>
+            <li><strong>Unstructured Shopping Lists:</strong> Local neighborhood errands require picking up items across several unlisted vendors (grocer, bakery, pharmacy) rather than a single digital cart.</li>
+            <li><strong>Courier Silos:</strong> Courier and customer apps are split into separate binaries with burdensome verification, discouraging ad-hoc peer delivery.</li>
+          </ul>
+        </div>
+
+        <div class="solution-side">
+          <h3 class="side-title">Hatli's Native Design:</h3>
+          <ul class="styled-list">
+            <li><strong>Landmark-First Drops:</strong> Destination inputs emphasize contextual notes, nearby landmarks, and custom contact preferences.</li>
+            <li><strong>Flexible 3-Step Wizard:</strong> Requesters compose freeform items, select categories, and propose a customized delivery fee via an intuitive slider.</li>
+            <li><strong>Unified Binary:</strong> Both Requesters and Runners coexist in one application binary, gated by verification logic.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 2: 12-Module Architecture Map -->
+    <section class="section-padding content-section container">
+      <div class="section-badge">02 • System Architecture</div>
+      <h2 class="content-heading">12-Module Clean Architecture</h2>
+      <p class="content-subtitle">
+        Hatli enforces strict separation between domain logic, data sources, and presentation layers. Each module encapsulates its dependencies and declares its public API.
+      </p>
+
+      <!-- Architecture Visual Diagram -->
+      <div class="arch-diagram">
+        <!-- App Layer -->
+        <div class="diagram-layer layer-app">
+          <span class="layer-title">Application Layer (Binary Root)</span>
+          <div class="layer-modules">
+            <div class="diagram-module">:app</div>
+          </div>
+          <p class="layer-desc">Hilt root component, Navigation Host, Firebase Messaging bootstrap</p>
+        </div>
+
+        <div class="diagram-connector">↓ depends on feature & core modules ↓</div>
+
+        <!-- Feature Layer -->
+        <div class="diagram-layer layer-feature">
+          <span class="layer-title">Feature Modules (Presentation / UI / ViewModels)</span>
+          <div class="layer-modules">
+            <div class="diagram-module">:feature:home</div>
+            <div class="diagram-module">:feature:request</div>
+            <div class="diagram-module">:feature:chat</div>
+            <div class="diagram-module">:feature:auth</div>
+            <div class="diagram-module">:feature:profile</div>
+          </div>
+          <p class="layer-desc">Jetpack Compose screens, Material 3, ViewModels, UI State Contracts</p>
+        </div>
+
+        <div class="diagram-connector">↓ depends on core domain & data ↓</div>
+
+        <!-- Domain Layer -->
+        <div class="diagram-layer layer-domain">
+          <span class="layer-title">Domain Layer (Pure Kotlin Business Rules)</span>
+          <div class="layer-modules">
+            <div class="diagram-module">:core:domain</div>
+            <div class="diagram-module">:core:model</div>
+            <div class="diagram-module">:core:common</div>
+          </div>
+          <p class="layer-desc">Pure Kotlin Use Cases, Entity definitions, AppError hierarchy, zero Android framework dependencies</p>
+        </div>
+
+        <div class="diagram-connector">↓ implemented by data layer ↓</div>
+
+        <!-- Data & Platform Layer -->
+        <div class="diagram-layer layer-data">
+          <span class="layer-title">Data & Platform Infrastructure Modules</span>
+          <div class="layer-modules">
+            <div class="diagram-module">:core:data</div>
+            <div class="diagram-module">:core:database</div>
+            <div class="diagram-module">:core:network</div>
+            <div class="diagram-module">:core:designsystem</div>
+            <div class="diagram-module">:core:ui</div>
+          </div>
+          <p class="layer-desc">Cloud Firestore repositories, Room database (hatli.db), Retrofit clients, M3 tokens</p>
+        </div>
+      </div>
+
+      <!-- Modules Detailed Table -->
+      <div class="modules-table-wrapper">
+        <table class="modules-table">
+          <thead>
+            <tr>
+              <th>Module Name</th>
+              <th>Category</th>
+              <th>Architectural Responsibility</th>
+            </tr>
+          </thead>
+          <tbody>
+            {hatliProject.modules.map((m) => (
+              <tr>
+                <td><code>{m.name}</code></td>
+                <td><span class={`module-type-badge type-${m.type}`}>{m.type}</span></td>
+                <td>{m.responsibility}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- SECTION 3: Deep Technical Decisions -->
+    <section class="section-padding content-section container-narrow">
+      <div class="section-badge">03 • Engineering Decisions</div>
+      <h2 class="content-heading">Engineering Deep Dives & Trade-Offs</h2>
+
+      <div class="deep-dive-cards-list">
+        {hatliProject.deepDives.map((dive, idx) => (
+          <div class="deep-card">
+            <div class="deep-header">
+              <span class="deep-number">0{idx + 1}</span>
+              <div>
+                <h3 class="deep-title">{dive.title}</h3>
+                <span class="deep-subtitle">{dive.subtitle}</span>
+              </div>
+            </div>
+
+            <div class="deep-block">
+              <h4 class="block-label">The Problem / Challenge:</h4>
+              <p class="block-text">{dive.problem}</p>
+            </div>
+
+            <div class="deep-block">
+              <h4 class="block-label">Implementation Approach:</h4>
+              <p class="block-text">{dive.implementation}</p>
+            </div>
+
+            <div class="deep-why-box">
+              <span class="why-tag">Architectural Impact & Why It Matters:</span>
+              <p class="why-body">{dive.whyItMatters}</p>
+            </div>
+
+            {dive.codeSnippet && (
+              <div class="deep-code-block">
+                <span class="code-tag">Kotlin Source Pattern</span>
+                <pre><code>{dive.codeSnippet}</code></pre>
+              </div>
+            )}
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- SECTION 4: Verified Capabilities vs Planned Work -->
+    <section class="section-padding content-section container">
+      <div class="section-badge">04 • Technical Transparency</div>
+      <h2 class="content-heading">Implementation Status & Feature Matrix</h2>
+      <p class="content-subtitle">
+        Honest technical distinction between implemented, verified capabilities and upcoming hardening phases.
+      </p>
+
+      <div class="status-comparison-grid">
+        <div class="status-column verified-card">
+          <div class="status-col-header">
+            <span class="status-pill green">Verified & Implemented</span>
+            <h3>Production-Ready Features</h3>
+          </div>
+          <ul class="status-items-list">
+            {hatliProject.verifiedFeatures.map((feat) => (
+              <li class="status-list-item">
+                <svg viewBox="0 0 20 20" width="16" height="16" fill="currentColor" class="check-icon" aria-hidden="true">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                </svg>
+                <span>{feat}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="status-column planned-card">
+          <div class="status-col-header">
+            <span class="status-pill amber">Planned Hardening Phase</span>
+            <h3>Next Engineering Iteration</h3>
+          </div>
+          <ul class="status-items-list">
+            {hatliProject.plannedFeatures.map((feat) => (
+              <li class="status-list-item planned">
+                <svg viewBox="0 0 20 20" width="16" height="16" fill="currentColor" class="circle-icon" aria-hidden="true">
+                  <circle cx="10" cy="10" r="6" fill="none" stroke="currentColor" stroke-width="2" />
+                </svg>
+                <span>{feat}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Bottom Case Study Actions -->
+    <div class="section-padding container text-center">
+      <div class="cta-box">
+        <h3 class="cta-heading">Ready to review the source code?</h3>
+        <p class="cta-desc">Explore the 12-module repository, Gradle dependency configuration, and UI test setups on GitHub.</p>
+        <div class="cta-buttons">
+          <a href={hatliProject.githubUrl} target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+            <span>View Hatli on GitHub</span>
+          </a>
+          <a href="/#projects" class="btn btn-secondary">
+            <span>Explore Other Android Projects</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </article>
+</BaseLayout>
+
+<style>
+  .case-study-page {
+    background-color: var(--bg-canvas);
+  }
+
+  .case-study-nav-bar {
+    padding: 1.25rem 0;
+    border-bottom: 1px solid var(--border-subtle);
+    background-color: var(--bg-surface);
+  }
+
+  .back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.875rem;
+    font-family: var(--font-mono);
+    color: var(--text-secondary);
+    font-weight: 600;
+    transition: color var(--transition-fast);
+  }
+
+  .back-link:hover {
+    color: var(--accent);
+  }
+
+  .case-study-hero {
+    padding: clamp(3rem, 6vw, 5rem) 0 2rem;
+    background: radial-gradient(circle at 75% 30%, var(--android-green-dim), transparent 55%);
+  }
+
+  .hero-badge-strip {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .case-study-title {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 800;
+    color: var(--text-primary);
+    line-height: 1.15;
+    letter-spacing: -0.03em;
+  }
+
+  .arabic-sub {
+    color: var(--text-muted);
+    font-weight: 600;
+  }
+
+  .case-study-tagline {
+    font-size: clamp(1.125rem, 2vw, 1.35rem);
+    color: var(--accent);
+    font-weight: 600;
+    margin-top: 0.5rem;
+  }
+
+  .case-study-lead {
+    font-size: 1.125rem;
+    line-height: 1.7;
+    color: var(--text-secondary);
+    max-width: 820px;
+    margin-top: 1.25rem;
+  }
+
+  .case-study-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+
+  .case-study-meta-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    margin-top: 3rem;
+  }
+
+  @media (min-width: 768px) {
+    .case-study-meta-grid {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
+  .meta-card {
+    padding: 1.25rem;
+    background-color: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-md);
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .meta-label {
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    letter-spacing: 0.05em;
+  }
+
+  .meta-val {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--text-primary);
+  }
+
+  .hero-image-frame {
+    border-radius: var(--radius-xl);
+    overflow: hidden;
+    border: 1px solid var(--border-medium);
+    box-shadow: var(--shadow-xl);
+    background-color: #000;
+  }
+
+  .case-study-hero-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+  }
+
+  /* Content Sections */
+  .content-section {
+    border-bottom: 1px solid var(--border-subtle);
+  }
+
+  .section-badge {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--accent);
+    letter-spacing: 0.08em;
+    margin-bottom: 0.5rem;
+  }
+
+  .content-heading {
+    font-size: clamp(1.75rem, 3.5vw, 2.35rem);
+    font-weight: 800;
+    color: var(--text-primary);
+    line-height: 1.25;
+    letter-spacing: -0.02em;
+    margin-bottom: 1.25rem;
+  }
+
+  .content-subtitle {
+    font-size: 1.05rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    max-width: 760px;
+    margin-bottom: 2.5rem;
+  }
+
+  .content-para {
+    font-size: 1.0625rem;
+    line-height: 1.7;
+    color: var(--text-secondary);
+    margin-bottom: 2rem;
+  }
+
+  /* Comparison Block */
+  .comparison-block {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  @media (min-width: 768px) {
+    .comparison-block {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  .problem-side {
+    background-color: var(--bg-surface);
+    border: 1px solid rgba(239, 68, 68, 0.3);
+    border-radius: var(--radius-md);
+    padding: 1.75rem;
+  }
+
+  .solution-side {
+    background-color: var(--bg-surface);
+    border: 1px solid var(--accent-border);
+    border-radius: var(--radius-md);
+    padding: 1.75rem;
+  }
+
+  .side-title {
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+  }
+
+  .styled-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.875rem;
+  }
+
+  .styled-list li {
+    font-size: 0.9375rem;
+    line-height: 1.6;
+    color: var(--text-secondary);
+  }
+
+  .styled-list li strong {
+    color: var(--text-primary);
+  }
+
+  /* Architecture Diagram */
+  .arch-diagram {
+    background-color: var(--bg-surface);
+    border: 1px solid var(--border-medium);
+    border-radius: var(--radius-lg);
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    margin-bottom: 3rem;
+  }
+
+  .diagram-layer {
+    padding: 1.25rem;
+    border-radius: var(--radius-md);
+    background-color: var(--bg-surface-elevated);
+    border: 1px solid var(--border-subtle);
+  }
+
+  .layer-title {
+    font-family: var(--font-mono);
+    font-size: 0.8125rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--text-primary);
+    display: block;
+    margin-bottom: 0.75rem;
+  }
+
+  .layer-modules {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .diagram-module {
+    font-family: var(--font-mono);
+    font-size: 0.8125rem;
+    font-weight: 600;
+    padding: 0.3rem 0.65rem;
+    border-radius: var(--radius-xs);
+    background-color: var(--bg-surface);
+    border: 1px solid var(--border-medium);
+    color: var(--accent);
+  }
+
+  .layer-desc {
+    font-size: 0.8125rem;
+    color: var(--text-muted);
+  }
+
+  .diagram-connector {
+    text-align: center;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--accent);
+    font-weight: 600;
+  }
+
+  /* Modules Table */
+  .modules-table-wrapper {
+    overflow-x: auto;
+    background-color: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-lg);
+  }
+
+  .modules-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+    font-size: 0.875rem;
+  }
+
+  .modules-table th {
+    padding: 1rem 1.25rem;
+    background-color: var(--bg-surface-elevated);
+    border-bottom: 1px solid var(--border-subtle);
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--text-muted);
+  }
+
+  .modules-table td {
+    padding: 1rem 1.25rem;
+    border-bottom: 1px solid var(--border-subtle);
+    color: var(--text-secondary);
+  }
+
+  .modules-table tr:last-child td {
+    border-bottom: none;
+  }
+
+  .module-type-badge {
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    text-transform: uppercase;
+    padding: 0.15rem 0.45rem;
+    border-radius: var(--radius-xs);
+    font-weight: 700;
+  }
+
+  .type-app { background-color: rgba(220, 38, 38, 0.15); color: #EF4444; }
+  .type-core { background-color: rgba(37, 99, 235, 0.15); color: #3B82F6; }
+  .type-feature { background-color: rgba(16, 185, 129, 0.15); color: #10B981; }
+
+  /* Deep Dive Cards */
+  .deep-dive-cards-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+  }
+
+  .deep-card {
+    background-color: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-lg);
+    padding: clamp(1.5rem, 3.5vw, 2.5rem);
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .deep-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.25rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--border-subtle);
+  }
+
+  .deep-number {
+    font-family: var(--font-mono);
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--accent);
+    line-height: 1;
+  }
+
+  .deep-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text-primary);
+  }
+
+  .deep-subtitle {
+    font-family: var(--font-mono);
+    font-size: 0.8125rem;
+    color: var(--text-muted);
+  }
+
+  .deep-block {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+  }
+
+  .block-label {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--text-muted);
+  }
+
+  .block-text {
+    font-size: 0.9375rem;
+    line-height: 1.65;
+    color: var(--text-secondary);
+  }
+
+  .deep-why-box {
+    padding: 1rem 1.25rem;
+    background-color: var(--bg-surface-elevated);
+    border-left: 3px solid var(--accent);
+    border-radius: var(--radius-xs);
+  }
+
+  .why-tag {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--accent);
+    display: block;
+    margin-bottom: 0.25rem;
+  }
+
+  .why-body {
+    font-size: 0.875rem;
+    color: var(--text-primary);
+    line-height: 1.55;
+  }
+
+  .deep-code-block {
+    background-color: var(--code-bg);
+    border: 1px solid var(--code-border);
+    border-radius: var(--radius-sm);
+    padding: 1rem;
+    overflow-x: auto;
+  }
+
+  .code-tag {
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    color: var(--text-muted);
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+
+  .deep-code-block pre {
+    margin: 0;
+    font-size: 0.8125rem;
+    line-height: 1.55;
+    color: var(--code-text);
+  }
+
+  /* Status Comparison */
+  .status-comparison-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  @media (min-width: 768px) {
+    .status-comparison-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  .status-column {
+    background-color: var(--bg-surface);
+    border-radius: var(--radius-lg);
+    padding: 2rem;
+    border: 1px solid var(--border-subtle);
+  }
+
+  .status-col-header {
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--border-subtle);
+  }
+
+  .status-pill {
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    padding: 0.2rem 0.55rem;
+    border-radius: var(--radius-full);
+    display: inline-block;
+    margin-bottom: 0.5rem;
+  }
+
+  .status-pill.green { background-color: rgba(16, 185, 129, 0.15); color: #10B981; }
+  .status-pill.amber { background-color: rgba(245, 158, 11, 0.15); color: #F59E0B; }
+
+  .status-items-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .status-list-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    font-size: 0.9375rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+  }
+
+  .check-icon {
+    color: #10B981;
+    flex-shrink: 0;
+    margin-top: 3px;
+  }
+
+  .circle-icon {
+    color: #F59E0B;
+    flex-shrink: 0;
+    margin-top: 3px;
+  }
+
+  /* CTA Box */
+  .cta-box {
+    background-color: var(--bg-surface);
+    border: 1px solid var(--border-medium);
+    border-radius: var(--radius-xl);
+    padding: 3rem 2rem;
+    max-width: 680px;
+    margin: 0 auto;
+  }
+
+  .cta-heading {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-primary);
+  }
+
+  .cta-desc {
+    font-size: 1rem;
+    color: var(--text-secondary);
+    margin-top: 0.5rem;
+    margin-bottom: 1.75rem;
+  }
+
+  .cta-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+  }
+</style>

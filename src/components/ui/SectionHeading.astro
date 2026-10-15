@@ -1,0 +1,80 @@
+---
+interface Props {
+  eyebrow?: string;
+  title: string;
+  subtitle?: string;
+  align?: 'left' | 'center';
+}
+
+const { eyebrow, title, subtitle, align = 'left' } = Astro.props;
+---
+
+<div class={`section-heading ${align === 'center' ? 'text-center' : ''}`}>
+  {eyebrow && (
+    <div class="eyebrow-wrapper">
+      <span class="android-dot" aria-hidden="true"></span>
+      <span class="eyebrow">{eyebrow}</span>
+    </div>
+  )}
+  <h2 class="heading-title">{title}</h2>
+  {subtitle && <p class="heading-subtitle">{subtitle}</p>}
+</div>
+
+<style>
+  .section-heading {
+    margin-bottom: clamp(2rem, 4vw, 3.5rem);
+  }
+
+  .text-center {
+    text-align: center;
+  }
+
+  .text-center .eyebrow-wrapper {
+    justify-content: center;
+  }
+
+  .text-center .heading-subtitle {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .eyebrow-wrapper {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .android-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: var(--accent);
+    display: inline-block;
+  }
+
+  .eyebrow {
+    font-family: var(--font-mono);
+    font-size: 0.8125rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--accent);
+  }
+
+  .heading-title {
+    font-size: clamp(1.875rem, 3.5vw, 2.5rem);
+    font-weight: 700;
+    letter-spacing: -0.025em;
+    color: var(--text-primary);
+    line-height: 1.2;
+  }
+
+  .heading-subtitle {
+    margin-top: 0.75rem;
+    font-size: clamp(1rem, 1.6vw, 1.125rem);
+    color: var(--text-secondary);
+    max-width: 680px;
+    line-height: 1.6;
+  }
+</style>

@@ -1,0 +1,396 @@
+---
+import { personalInfo } from '../../data/portfolio';
+---
+
+<section class="hero-section" id="hero">
+  <div class="container hero-container">
+    <div class="hero-content">
+      <!-- Status Badge -->
+      <div class="status-badge-wrapper">
+        <span class="status-pulse" aria-hidden="true"></span>
+        <span class="status-text">{personalInfo.role} • 2+ Years Production Experience</span>
+      </div>
+
+      <!-- Main Headline -->
+      <h1 class="hero-name">{personalInfo.name}</h1>
+      <p class="hero-title">Native Android Engineer</p>
+
+      <!-- Bio / Positioning -->
+      <p class="hero-lead">
+        Building maintainable, production-ready mobile applications using <strong>Kotlin</strong>, <strong>Jetpack Compose</strong>, <strong>MVVM</strong>, and <strong>Clean Architecture</strong>. Experienced delivering real-time food delivery platforms, multi-service transportation apps, and e-commerce solutions with a focus on stability, reactive concurrency, and offline-first synchronization.
+      </p>
+
+      <!-- Action Buttons -->
+      <div class="hero-cta-group">
+        <a href="#hatli" class="btn btn-primary">
+          <span>Explore Flagship Work (Hatli)</span>
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </a>
+        <a href={personalInfo.resumeUrl} download="Ahmed_Khaled_Android_Engineer.pdf" class="btn btn-secondary">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+            <polyline points="7 10 12 15 17 10"></polyline>
+            <line x1="12" y1="15" x2="12" y2="3"></line>
+          </svg>
+          <span>Download CV</span>
+        </a>
+      </div>
+
+      <!-- Verified Social Proof Links -->
+      <div class="hero-social-strip">
+        <span class="social-label">Profiles:</span>
+        <a href={personalInfo.social.github} target="_blank" rel="noopener noreferrer" class="social-chip" aria-label="Ahmed Khaled GitHub profile">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true">
+            <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
+          </svg>
+          <span>github.com/AhmedKhaled2711</span>
+        </a>
+        <a href={personalInfo.social.linkedin} target="_blank" rel="noopener noreferrer" class="social-chip" aria-label="Ahmed Khaled LinkedIn profile">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor" aria-hidden="true">
+            <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+          </svg>
+          <span>linkedin.com/in/ahmed-khaled-android</span>
+        </a>
+      </div>
+
+      <!-- Highlights Strip -->
+      <div class="hero-tech-strip">
+        <span class="tech-tag">Kotlin 2.0</span>
+        <span class="tech-tag">Jetpack Compose</span>
+        <span class="tech-tag">Clean Architecture</span>
+        <span class="tech-tag">Coroutines & Flow</span>
+        <span class="tech-tag">Hilt</span>
+        <span class="tech-tag">Room (Offline-First)</span>
+      </div>
+    </div>
+
+    <!-- Visual Engineering Composition -->
+    <div class="hero-visual">
+      <div class="ide-window">
+        <div class="ide-topbar">
+          <div class="ide-dots">
+            <span class="dot red"></span>
+            <span class="dot yellow"></span>
+            <span class="dot green"></span>
+          </div>
+          <div class="ide-tab">
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"></path>
+              <polyline points="14 2 14 8 20 8"></polyline>
+            </svg>
+            <span>OrderTrackingViewModel.kt</span>
+          </div>
+          <span class="ide-env-badge">Min SDK 29 • Target SDK 35</span>
+        </div>
+
+        <div class="ide-code-body">
+          <pre><code><span class="c-keyword">@HiltViewModel</span>
+<span class="c-keyword">class</span> <span class="c-class">OrderTrackingViewModel</span> <span class="c-keyword">@Inject constructor</span>(
+    <span class="c-param">private val</span> observeOrderUseCase: ObserveOrderUseCase,
+    <span class="c-param">@IoDispatcher private val</span> dispatcher: CoroutineDispatcher
+) : <span class="c-class">ViewModel</span>() &#123;
+
+    <span class="c-comment">// Unidirectional Data Flow state stream</span>
+    <span class="c-keyword">val</span> uiState: <span class="c-type">StateFlow&lt;OrderUiState&gt;</span> = observeOrderUseCase()
+        .<span class="c-func">map</span> &#123; order -&gt; OrderUiState.<span class="c-func">Success</span>(order) &#125;
+        .<span class="c-func">flowOn</span>(dispatcher)
+        .<span class="c-func">stateIn</span>(
+            scope = viewModelScope,
+            started = SharingStarted.WhileSubscribed(<span class="c-num">5000</span>),
+            initialValue = OrderUiState.Loading
+        )
+&#125;</code></pre>
+        </div>
+
+        <div class="ide-footer">
+          <div class="build-status">
+            <span class="status-indicator"></span>
+            <span>Gradle: app:assembleRelease SUCCESSFUL</span>
+          </div>
+          <div class="arch-pills">
+            <span class="arch-pill">Compose UI</span>
+            <span class="arch-arrow">→</span>
+            <span class="arch-pill">Domain UseCase</span>
+            <span class="arch-arrow">→</span>
+            <span class="arch-pill">Room Cache + Flow</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero-section {
+    padding-top: clamp(3rem, 7vw, 6rem);
+    padding-bottom: clamp(3.5rem, 8vw, 6.5rem);
+    border-bottom: 1px solid var(--border-subtle);
+    background: radial-gradient(circle at 80% 20%, var(--android-green-dim), transparent 50%);
+  }
+
+  .hero-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3.5rem;
+    align-items: center;
+  }
+
+  @media (min-width: 1024px) {
+    .hero-container {
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 4rem;
+    }
+  }
+
+  /* Content Column */
+  .hero-content {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .status-badge-wrapper {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.35rem 0.85rem;
+    border-radius: var(--radius-full);
+    background-color: var(--bg-surface-elevated);
+    border: 1px solid var(--border-medium);
+    margin-bottom: 1.5rem;
+    width: fit-content;
+  }
+
+  .status-pulse {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: var(--accent);
+    box-shadow: 0 0 8px var(--accent);
+  }
+
+  .status-text {
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    font-family: var(--font-mono);
+  }
+
+  .hero-name {
+    font-size: clamp(2.5rem, 5.5vw, 4.25rem);
+    font-weight: 800;
+    letter-spacing: -0.035em;
+    color: var(--text-primary);
+    line-height: 1.1;
+  }
+
+  .hero-title {
+    font-size: clamp(1.25rem, 2.5vw, 1.875rem);
+    font-weight: 600;
+    color: var(--accent);
+    margin-top: 0.5rem;
+    margin-bottom: 1.25rem;
+    letter-spacing: -0.02em;
+  }
+
+  .hero-lead {
+    font-size: clamp(1.05rem, 1.6vw, 1.2rem);
+    color: var(--text-secondary);
+    line-height: 1.65;
+    max-width: 620px;
+  }
+
+  .hero-lead strong {
+    color: var(--text-primary);
+    font-weight: 600;
+  }
+
+  /* CTA Buttons */
+  .hero-cta-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+
+  /* Social Strip */
+  .hero-social-strip {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.75rem;
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border-subtle);
+  }
+
+  .social-label {
+    font-size: 0.8125rem;
+    font-family: var(--font-mono);
+    color: var(--text-muted);
+  }
+
+  .social-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.8125rem;
+    font-family: var(--font-mono);
+    color: var(--text-secondary);
+    padding: 0.3rem 0.65rem;
+    border-radius: var(--radius-sm);
+    background-color: var(--bg-surface-elevated);
+    border: 1px solid var(--border-subtle);
+    transition: all var(--transition-fast);
+  }
+
+  .social-chip:hover {
+    color: var(--accent);
+    border-color: var(--accent-border);
+    transform: translateY(-1px);
+  }
+
+  /* Tech Strip */
+  .hero-tech-strip {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 1.25rem;
+  }
+
+  .tech-tag {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    padding: 0.2rem 0.55rem;
+    border-radius: var(--radius-xs);
+    background-color: var(--badge-bg);
+    color: var(--badge-text);
+    border: 1px solid var(--border-subtle);
+  }
+
+  /* Visual IDE / Architectural Composition */
+  .hero-visual {
+    width: 100%;
+  }
+
+  .ide-window {
+    background-color: var(--bg-surface);
+    border: 1px solid var(--border-medium);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-xl);
+    overflow: hidden;
+  }
+
+  .ide-topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.75rem 1rem;
+    background-color: var(--bg-surface-elevated);
+    border-bottom: 1px solid var(--border-subtle);
+  }
+
+  .ide-dots {
+    display: flex;
+    gap: 6px;
+  }
+
+  .dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+  }
+
+  .dot.red { background-color: #EF4444; }
+  .dot.yellow { background-color: #F59E0B; }
+  .dot.green { background-color: #10B981; }
+
+  .ide-tab {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-family: var(--font-mono);
+    font-size: 0.8125rem;
+    color: var(--text-primary);
+    font-weight: 500;
+  }
+
+  .ide-env-badge {
+    font-family: var(--font-mono);
+    font-size: 0.6875rem;
+    color: var(--accent);
+    padding: 0.15rem 0.45rem;
+    background-color: var(--accent-light);
+    border-radius: var(--radius-xs);
+    font-weight: 600;
+  }
+
+  .ide-code-body {
+    padding: 1.25rem 1.25rem;
+    background-color: var(--code-bg);
+    overflow-x: auto;
+  }
+
+  .ide-code-body pre {
+    margin: 0;
+    font-size: 0.8125rem;
+    line-height: 1.55;
+  }
+
+  /* Code Syntax Highlighting Tokens */
+  .c-keyword { color: #818CF8; font-weight: 600; }
+  .c-class { color: #38BDF8; font-weight: 600; }
+  .c-param { color: #94A3B8; }
+  .c-type { color: #34D399; }
+  .c-func { color: #FBBF24; }
+  .c-comment { color: #64748B; font-style: italic; }
+  .c-num { color: #F472B6; }
+
+  .ide-footer {
+    padding: 0.75rem 1rem;
+    background-color: var(--bg-surface-elevated);
+    border-top: 1px solid var(--border-subtle);
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    font-size: 0.75rem;
+    font-family: var(--font-mono);
+  }
+
+  .build-status {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--text-secondary);
+  }
+
+  .status-indicator {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: var(--accent);
+  }
+
+  .arch-pills {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    color: var(--text-muted);
+    font-size: 0.6875rem;
+    overflow-x: auto;
+  }
+
+  .arch-pill {
+    padding: 0.15rem 0.45rem;
+    border-radius: 3px;
+    background-color: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
+    color: var(--text-primary);
+  }
+
+  .arch-arrow {
+    color: var(--accent);
+  }
+</style>

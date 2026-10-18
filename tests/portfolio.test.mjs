@@ -121,10 +121,11 @@ test('Suite 3: HTML Structure & Accessibility Integrity', async (t) => {
     assert.match(indexHtml, /id="theme-toggle"/, 'Theme toggle button must exist');
   });
 
-  await t.test('mobile nav: drawer toggle and drawer have correct aria attributes', () => {
+  await t.test('mobile nav: drawer toggle, backdrop and drawer have correct aria attributes', () => {
     assert.match(indexHtml, /id="mobile-menu-toggle"/, 'Mobile menu toggle button must exist');
     assert.match(indexHtml, /aria-controls="mobile-nav"/, 'Toggle button must control mobile-nav');
     assert.match(indexHtml, /id="mobile-nav"/, 'Mobile nav container must exist');
+    assert.match(indexHtml, /id="mobile-nav-backdrop"/, 'Mobile nav backdrop must exist');
   });
 });
 
@@ -150,6 +151,7 @@ test('Suite 4: Link Integrity & Anchor Verification', async (t) => {
     const externalLinks = [
       'https://github.com/AhmedKhaled2711',
       'https://www.linkedin.com/in/ahmed-khaled-android',
+      'https://wa.me/201007394856',
       'https://github.com/AhmedKhaled2711/Hatli',
       'https://github.com/AhmedKhaled2711/Shoppe',
       'https://github.com/AhmedKhaled2711/Timely',

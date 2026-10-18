@@ -2,6 +2,7 @@ export interface SocialLinks {
   github: string;
   linkedin: string;
   email: string;
+  whatsapp: string;
 }
 
 export interface ArchitectureModule {
@@ -116,6 +117,7 @@ export const personalInfo = {
     github: 'https://github.com/AhmedKhaled2711',
     linkedin: 'https://www.linkedin.com/in/ahmed-khaled-android',
     email: 'eng.ahmedkhaled.work@gmail.com',
+    whatsapp: 'https://wa.me/201007394856',
   } as SocialLinks,
   highlights: [
     { label: 'Production Apps', value: 'Food Delivery & Multi-Service' },

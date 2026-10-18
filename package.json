@@ -11,7 +11,8 @@
     "preview": "astro preview",
     "astro": "astro",
     "check": "astro check",
-    "test": "node --test tests/portfolio.test.mjs"
+    "test": "node --test tests/portfolio.test.mjs",
+    "test:viewport": "node tests/viewport-audit.mjs"
   },
   "dependencies": {
     "astro": "^7.3.8"

@@ -32,6 +32,15 @@
   /* Max widths */
   --max-width-site: 1200px;
   --max-width-narrow: 840px;
+
+  /* Header sizing */
+  --header-height: 64px;
+}
+
+@media (min-width: 768px) {
+  :root {
+    --header-height: 72px;
+  }
 }
 
 /* Light Theme Variables */
@@ -117,7 +126,7 @@ html {
   background-color: var(--bg-canvas);
   color: var(--text-primary);
   scroll-behavior: smooth;
-  scroll-padding-top: 80px;
+  scroll-padding-top: calc(var(--header-height) + 16px);
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -131,6 +140,10 @@ body {
   background-color: var(--bg-canvas);
   color: var(--text-primary);
   transition: background-color var(--transition-normal), color var(--transition-normal);
+}
+
+body.nav-open {
+  overflow: hidden;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -300,6 +313,20 @@ code, pre {
   background-color: var(--bg-surface);
   border-color: var(--border-strong);
   transform: translateY(-1px);
+}
+
+.btn-whatsapp {
+  background-color: #25D366;
+  color: #FFFFFF;
+  box-shadow: 0 2px 8px rgba(37, 211, 102, 0.25);
+  border: 1px solid transparent;
+}
+
+.btn-whatsapp:hover {
+  background-color: #20BA5A;
+  color: #FFFFFF;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px rgba(37, 211, 102, 0.35);
 }
 
 .btn-sm {
